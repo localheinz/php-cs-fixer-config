@@ -1,6 +1,6 @@
 {
     "name": "localheinz/php-cs-fixer-config",
-    "description": "Provides multiple configurations for friendsofphp/php-cs-fixer.",
+    "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
     "type": "library",
     "license": "MIT",
     "authors": [

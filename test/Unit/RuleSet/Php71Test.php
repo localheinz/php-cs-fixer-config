@@ -9,13 +9,20 @@
  * @link https://github.com/localheinz/php-cs-fixer-config
  */
 
-namespace Localheinz\PhpCsFixer\Config;
+namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
 
-final class Php56 extends AbstractConfig
+use Localheinz\PhpCsFixer\Config\RuleSet\Php71;
+
+final class Php71Test extends AbstractRuleSetTestCase
 {
+    protected function className()
+    {
+        return Php71::class;
+    }
+
     protected function name()
     {
-        return 'localheinz (PHP 5.6)';
+        return 'localheinz (PHP 7.1)';
     }
 
     protected function rules()
@@ -143,7 +150,7 @@ final class Php56 extends AbstractConfig
             'semicolon_after_instruction' => true,
             'short_scalar_cast' => true,
             'silenced_deprecation_error' => false,
-            'simplified_null_return' => true,
+            'simplified_null_return' => false,
             'single_blank_line_before_namespace' => true,
             'single_quote' => true,
             'space_after_semicolon' => true,
@@ -151,11 +158,12 @@ final class Php56 extends AbstractConfig
             'strict_comparison' => true,
             'strict_param' => true,
             'ternary_operator_spaces' => true,
-            'ternary_to_null_coalescing' => false,
+            'ternary_to_null_coalescing' => true,
             'trailing_comma_in_multiline_array' => true,
             'trim_array_spaces' => true,
             'unary_operator_spaces' => true,
             'visibility_required' => [
+                'const',
                 'method',
                 'property',
             ],
