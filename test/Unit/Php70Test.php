@@ -9,51 +9,182 @@
  * @link https://github.com/localheinz/php-cs-fixer-config
  */
 
-namespace Localheinz\PhpCsFixer\Config;
+namespace Localheinz\PhpCsFixer\Config\Test\Unit;
 
-use PhpCsFixer\Config;
+use Localheinz\PhpCsFixer\Config\Php70;
+use PhpCsFixer\ConfigInterface;
+use PhpCsFixer\Fixer\FixerInterface;
+use PhpCsFixer\FixerFactory;
+use PhpCsFixer\RuleSet;
+use PHPUnit\Framework;
 
-final class Php56 extends Config
+final class Php70Test extends Framework\TestCase
 {
-    /**
-     * @param string $header
-     *
-     * @throws \InvalidArgumentException
-     */
-    final public function __construct($header = null)
+    public function testIsFinal()
     {
-        $rules = $this->rules();
+        $reflection = new \ReflectionClass(Php70::class);
 
-        if (null !== $header) {
-            if (!\is_string($header)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'Header needs to be specified as null or a string. Got "%s" instead.',
-                    \is_object($header) ? \get_class($header) : \gettype($header)
-                ));
-            }
-
-            if ('' === \trim($header)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'If specified, header needs to be a non-blank string. Got "%s" instead.',
-                    $header
-                ));
-            }
-
-            $rules['header_comment'] = [
-                'commentType' => 'PHPDoc',
-                'header' => $header,
-                'location' => 'after_declare_strict',
-                'separate' => 'both',
-            ];
-        }
-
-        parent::__construct('localheinz (PHP 5.6)');
-
-        $this->setRiskyAllowed(true);
-        $this->setRules($rules);
+        $this->assertTrue($reflection->isFinal());
     }
 
-    protected function rules()
+    public function testImplementsConfigInterface()
+    {
+        $reflection = new \ReflectionClass(Php70::class);
+
+        $this->assertTrue($reflection->implementsInterface(ConfigInterface::class));
+    }
+
+    public function testDefaults()
+    {
+        $config = new Php70();
+
+        $this->assertSame('localheinz (PHP 7.0)', $config->getName());
+        $this->assertTrue($config->getRiskyAllowed());
+        $this->assertTrue($config->getUsingCache());
+    }
+
+    public function testHasRules()
+    {
+        $config = new Php70();
+
+        $this->assertEquals($this->expectedRules(), $config->getRules());
+    }
+
+    public function testAllConfiguredRulesAreBuiltIn()
+    {
+        $fixersNotBuiltIn = \array_diff(
+            $this->configuredFixers(),
+            $this->builtInFixers()
+        );
+
+        $this->assertEmpty($fixersNotBuiltIn, \sprintf(
+            'Failed to assert that fixers for the rules "%s" are built in',
+            \implode('", "', $fixersNotBuiltIn)
+        ));
+    }
+
+    public function testAllBuiltInRulesAreConfigured()
+    {
+        $fixersWithoutConfiguration = \array_diff(
+            $this->builtInFixers(),
+            $this->configuredFixers()
+        );
+
+        $this->assertEmpty($fixersWithoutConfiguration, \sprintf(
+            'Failed to assert that built-in fixers for the rules "%s" are configured',
+            \implode('", "', $fixersWithoutConfiguration)
+        ));
+    }
+
+    /**
+     * @dataProvider providerInvalidHeader
+     *
+     * @param $header
+     */
+    public function testConstructorRejectsInvalidHeader($header)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        new Php70($header);
+    }
+
+    /**
+     * @return \Generator
+     */
+    public function providerInvalidHeader()
+    {
+        $values = [
+            'boolean-true' => true,
+            'boolean-false' => false,
+            'float' => 3.14,
+            'integer' => 90001,
+            'array' => [],
+            'object' => new \stdClass(),
+            'empty-string' => '',
+            'string-with-spaces-only' => ' ',
+            'string-with-line-feed-only' => "\n",
+            'string-with-tab-only' => "\t",
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
+    public function testHeaderCommentFixerIsDisabledByDefault()
+    {
+        $config = new Php70();
+
+        $rules = $config->getRules();
+
+        $this->assertArrayHasKey('header_comment', $rules);
+        $this->assertFalse($rules['header_comment']);
+    }
+
+    public function testHeaderCommentFixerIsEnabledIfHeaderProvided()
+    {
+        $header = 'foo';
+
+        $config = new Php70($header);
+
+        $rules = $config->getRules();
+
+        $this->assertArrayHasKey('header_comment', $rules);
+
+        $expected = [
+            'commentType' => 'PHPDoc',
+            'header' => $header,
+            'location' => 'after_declare_strict',
+            'separate' => 'both',
+        ];
+
+        $this->assertSame($expected, $rules['header_comment']);
+    }
+
+    /**
+     * @return string[]
+     */
+    private function builtInFixers()
+    {
+        static $builtInFixers;
+
+        if (null === $builtInFixers) {
+            $fixerFactory = FixerFactory::create();
+            $fixerFactory->registerBuiltInFixers();
+
+            $builtInFixers = \array_map(function (FixerInterface $fixer) {
+                return $fixer->getName();
+            }, $fixerFactory->getFixers());
+        }
+
+        return $builtInFixers;
+    }
+
+    /**
+     * @return string[]
+     */
+    private function configuredFixers()
+    {
+        $config = new Php70();
+
+        /**
+         * RuleSet::create() removes disabled fixers, to let's just enable them to make sure they not removed.
+         *
+         * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/2361
+         */
+        $rules = \array_map(function () {
+            return true;
+        }, $config->getRules());
+
+        return \array_keys(RuleSet::create($rules)->getRules());
+    }
+
+    /**
+     * @return array
+     */
+    private function expectedRules()
     {
         return [
             '@PSR2' => true,
@@ -178,7 +309,7 @@ final class Php56 extends Config
             'semicolon_after_instruction' => true,
             'short_scalar_cast' => true,
             'silenced_deprecation_error' => false,
-            'simplified_null_return' => true,
+            'simplified_null_return' => false,
             'single_blank_line_before_namespace' => true,
             'single_quote' => true,
             'space_after_semicolon' => true,
@@ -186,7 +317,7 @@ final class Php56 extends Config
             'strict_comparison' => true,
             'strict_param' => true,
             'ternary_operator_spaces' => true,
-            'ternary_to_null_coalescing' => false,
+            'ternary_to_null_coalescing' => true,
             'trailing_comma_in_multiline_array' => true,
             'trim_array_spaces' => true,
             'unary_operator_spaces' => true,

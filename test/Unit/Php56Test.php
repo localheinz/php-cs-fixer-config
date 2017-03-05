@@ -38,7 +38,7 @@ final class Php56Test extends Framework\TestCase
     {
         $config = new Php56();
 
-        $this->assertSame('localheinz', $config->getName());
+        $this->assertSame('localheinz (PHP 5.6)', $config->getName());
         $this->assertTrue($config->getRiskyAllowed());
         $this->assertTrue($config->getUsingCache());
     }
