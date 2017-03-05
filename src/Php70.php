@@ -13,7 +13,7 @@ namespace Localheinz\PhpCsFixer\Config;
 
 use PhpCsFixer\Config;
 
-final class Php56 extends Config
+final class Php70 extends Config
 {
     /**
      * @param string $header
@@ -47,7 +47,7 @@ final class Php56 extends Config
             ];
         }
 
-        parent::__construct('localheinz (PHP 5.6)');
+        parent::__construct('localheinz (PHP 7.0)');
 
         $this->setRiskyAllowed(true);
         $this->setRules($rules);
@@ -178,7 +178,7 @@ final class Php56 extends Config
             'semicolon_after_instruction' => true,
             'short_scalar_cast' => true,
             'silenced_deprecation_error' => false,
-            'simplified_null_return' => true,
+            'simplified_null_return' => false,
             'single_blank_line_before_namespace' => true,
             'single_quote' => true,
             'space_after_semicolon' => true,
@@ -186,7 +186,7 @@ final class Php56 extends Config
             'strict_comparison' => true,
             'strict_param' => true,
             'ternary_operator_spaces' => true,
-            'ternary_to_null_coalescing' => false,
+            'ternary_to_null_coalescing' => true,
             'trailing_comma_in_multiline_array' => true,
             'trim_array_spaces' => true,
             'unary_operator_spaces' => true,

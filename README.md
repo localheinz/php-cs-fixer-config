@@ -5,8 +5,8 @@
 [![Test Coverage](https://codeclimate.com/github/localheinz/php-cs-fixer-config/badges/coverage.svg)](https://codeclimate.com/github/localheinz/php-cs-fixer-config/coverage)
 [![Issue Count](https://codeclimate.com/github/localheinz/php-cs-fixer-config/badges/issue_count.svg)](https://codeclimate.com/github/localheinz/php-cs-fixer-config)
 
-Similar to [`refinery29/php-cs-fixer-config`](http://github.com/refinery29/php-cs-fixer-config),
-this repository provides a configuration for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
+As an alternative to [`refinery29/php-cs-fixer-config`](http://github.com/refinery29/php-cs-fixer-config),
+this repository provides multiple configurations for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
 ## Installation
 
@@ -19,6 +19,11 @@ $ composer require --dev localheinz/php-cs-fixer-config
 ## Usage
 
 ### Configuration
+
+Pick one of the configurations
+
+* `Localheinz\PhpCsFixer\Config\Php56`
+* `Localheinz\PhpCsFixer\Config\Php70`
 
 Create a configuration file `.php_cs` in the root of your project:
 
