@@ -11,46 +11,11 @@
 
 namespace Localheinz\PhpCsFixer\Config;
 
-use PhpCsFixer\Config;
-
-final class Php56 extends Config
+final class Php56 extends AbstractConfig
 {
-    /**
-     * @param string $header
-     *
-     * @throws \InvalidArgumentException
-     */
-    final public function __construct($header = null)
+    protected function name()
     {
-        $rules = $this->rules();
-
-        if (null !== $header) {
-            if (!\is_string($header)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'Header needs to be specified as null or a string. Got "%s" instead.',
-                    \is_object($header) ? \get_class($header) : \gettype($header)
-                ));
-            }
-
-            if ('' === \trim($header)) {
-                throw new \InvalidArgumentException(\sprintf(
-                    'If specified, header needs to be a non-blank string. Got "%s" instead.',
-                    $header
-                ));
-            }
-
-            $rules['header_comment'] = [
-                'commentType' => 'PHPDoc',
-                'header' => $header,
-                'location' => 'after_declare_strict',
-                'separate' => 'both',
-            ];
-        }
-
-        parent::__construct('localheinz (PHP 5.6)');
-
-        $this->setRiskyAllowed(true);
-        $this->setRules($rules);
+        return 'localheinz (PHP 5.6)';
     }
 
     protected function rules()
