@@ -12,179 +12,20 @@
 namespace Localheinz\PhpCsFixer\Config\Test\Unit;
 
 use Localheinz\PhpCsFixer\Config\Php71;
-use PhpCsFixer\ConfigInterface;
-use PhpCsFixer\Fixer\FixerInterface;
-use PhpCsFixer\FixerFactory;
-use PhpCsFixer\RuleSet;
-use PHPUnit\Framework;
 
-final class Php71Test extends Framework\TestCase
+final class Php71Test extends AbstractConfigTestCase
 {
-    public function testIsFinal()
+    protected function className()
     {
-        $reflection = new \ReflectionClass(Php71::class);
-
-        $this->assertTrue($reflection->isFinal());
+        return Php71::class;
     }
 
-    public function testImplementsConfigInterface()
+    protected function name()
     {
-        $reflection = new \ReflectionClass(Php71::class);
-
-        $this->assertTrue($reflection->implementsInterface(ConfigInterface::class));
+        return 'localheinz (PHP 7.1)';
     }
 
-    public function testDefaults()
-    {
-        $config = new Php71();
-
-        $this->assertSame('localheinz (PHP 7.1)', $config->getName());
-        $this->assertTrue($config->getRiskyAllowed());
-        $this->assertTrue($config->getUsingCache());
-    }
-
-    public function testHasRules()
-    {
-        $config = new Php71();
-
-        $this->assertEquals($this->expectedRules(), $config->getRules());
-    }
-
-    public function testAllConfiguredRulesAreBuiltIn()
-    {
-        $fixersNotBuiltIn = \array_diff(
-            $this->configuredFixers(),
-            $this->builtInFixers()
-        );
-
-        $this->assertEmpty($fixersNotBuiltIn, \sprintf(
-            'Failed to assert that fixers for the rules "%s" are built in',
-            \implode('", "', $fixersNotBuiltIn)
-        ));
-    }
-
-    public function testAllBuiltInRulesAreConfigured()
-    {
-        $fixersWithoutConfiguration = \array_diff(
-            $this->builtInFixers(),
-            $this->configuredFixers()
-        );
-
-        $this->assertEmpty($fixersWithoutConfiguration, \sprintf(
-            'Failed to assert that built-in fixers for the rules "%s" are configured',
-            \implode('", "', $fixersWithoutConfiguration)
-        ));
-    }
-
-    /**
-     * @dataProvider providerInvalidHeader
-     *
-     * @param $header
-     */
-    public function testConstructorRejectsInvalidHeader($header)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-
-        new Php71($header);
-    }
-
-    /**
-     * @return \Generator
-     */
-    public function providerInvalidHeader()
-    {
-        $values = [
-            'boolean-true' => true,
-            'boolean-false' => false,
-            'float' => 3.14,
-            'integer' => 90001,
-            'array' => [],
-            'object' => new \stdClass(),
-            'empty-string' => '',
-            'string-with-spaces-only' => ' ',
-            'string-with-line-feed-only' => "\n",
-            'string-with-tab-only' => "\t",
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
-    }
-
-    public function testHeaderCommentFixerIsDisabledByDefault()
-    {
-        $config = new Php71();
-
-        $rules = $config->getRules();
-
-        $this->assertArrayHasKey('header_comment', $rules);
-        $this->assertFalse($rules['header_comment']);
-    }
-
-    public function testHeaderCommentFixerIsEnabledIfHeaderProvided()
-    {
-        $header = 'foo';
-
-        $config = new Php71($header);
-
-        $rules = $config->getRules();
-
-        $this->assertArrayHasKey('header_comment', $rules);
-
-        $expected = [
-            'commentType' => 'PHPDoc',
-            'header' => $header,
-            'location' => 'after_declare_strict',
-            'separate' => 'both',
-        ];
-
-        $this->assertSame($expected, $rules['header_comment']);
-    }
-
-    /**
-     * @return string[]
-     */
-    private function builtInFixers()
-    {
-        static $builtInFixers;
-
-        if (null === $builtInFixers) {
-            $fixerFactory = FixerFactory::create();
-            $fixerFactory->registerBuiltInFixers();
-
-            $builtInFixers = \array_map(function (FixerInterface $fixer) {
-                return $fixer->getName();
-            }, $fixerFactory->getFixers());
-        }
-
-        return $builtInFixers;
-    }
-
-    /**
-     * @return string[]
-     */
-    private function configuredFixers()
-    {
-        $config = new Php71();
-
-        /**
-         * RuleSet::create() removes disabled fixers, to let's just enable them to make sure they not removed.
-         *
-         * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/2361
-         */
-        $rules = \array_map(function () {
-            return true;
-        }, $config->getRules());
-
-        return \array_keys(RuleSet::create($rules)->getRules());
-    }
-
-    /**
-     * @return array
-     */
-    private function expectedRules()
+    protected function rules()
     {
         return [
             '@PSR2' => true,
