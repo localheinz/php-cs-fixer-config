@@ -9,20 +9,20 @@
  * @link https://github.com/localheinz/php-cs-fixer-config
  */
 
-namespace Localheinz\PhpCsFixer\Config\Test\Unit;
+namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
 
-use Localheinz\PhpCsFixer\Config\Php56;
+use Localheinz\PhpCsFixer\Config\RuleSet\Php70;
 
-final class Php56Test extends AbstractConfigTestCase
+final class Php70Test extends AbstractRuleSetTestCase
 {
     protected function className()
     {
-        return Php56::class;
+        return Php70::class;
     }
 
     protected function name()
     {
-        return 'localheinz (PHP 5.6)';
+        return 'localheinz (PHP 7.0)';
     }
 
     protected function rules()
@@ -150,7 +150,7 @@ final class Php56Test extends AbstractConfigTestCase
             'semicolon_after_instruction' => true,
             'short_scalar_cast' => true,
             'silenced_deprecation_error' => false,
-            'simplified_null_return' => true,
+            'simplified_null_return' => false,
             'single_blank_line_before_namespace' => true,
             'single_quote' => true,
             'space_after_semicolon' => true,
@@ -158,7 +158,7 @@ final class Php56Test extends AbstractConfigTestCase
             'strict_comparison' => true,
             'strict_param' => true,
             'ternary_operator_spaces' => true,
-            'ternary_to_null_coalescing' => false,
+            'ternary_to_null_coalescing' => true,
             'trailing_comma_in_multiline_array' => true,
             'trim_array_spaces' => true,
             'unary_operator_spaces' => true,

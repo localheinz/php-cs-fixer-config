@@ -6,7 +6,7 @@
 [![Issue Count](https://codeclimate.com/github/localheinz/php-cs-fixer-config/badges/issue_count.svg)](https://codeclimate.com/github/localheinz/php-cs-fixer-config)
 
 As an alternative to [`refinery29/php-cs-fixer-config`](http://github.com/refinery29/php-cs-fixer-config),
-this repository provides multiple configurations for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
+this repository provides a configuration factory and multiple rule sets for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
 ## Installation
 
@@ -20,20 +20,20 @@ $ composer require --dev localheinz/php-cs-fixer-config
 
 ### Configuration
 
-Pick one of the configurations
+Pick one of the rule sets:
 
-* `Localheinz\PhpCsFixer\Config\Php56`
-* `Localheinz\PhpCsFixer\Config\Php70`
-* `Localheinz\PhpCsFixer\Config\Php71`
+* `Localheinz\PhpCsFixer\RuleSet\Php56`
+* `Localheinz\PhpCsFixer\RuleSet\Php70`
+* `Localheinz\PhpCsFixer\RuleSet\Php71`
 
 Create a configuration file `.php_cs` in the root of your project:
 
 ```php
 <?php
 
-use Localheinz\PhpCsFixer\Config();
+use Localheinz\PhpCsFixer\Config;
 
-$config = new Config\Php56();
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56();
 
 $config->getFinder()->in(__DIR__);
 
@@ -60,7 +60,7 @@ the LICENSE file that was distributed with this source code.
 @link https://github.com/localheinz/php-cs-fixer-config
 EOF;
 
-$config = new Config\Php56($header);
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56();
 
 $config->getFinder()->in(__DIR__);
 

@@ -9,15 +9,15 @@
  * @link https://github.com/localheinz/php-cs-fixer-config
  */
 
-namespace Localheinz\PhpCsFixer\Config\Test\Unit;
+namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
 
-use PhpCsFixer\ConfigInterface;
+use Localheinz\PhpCsFixer\Config;
 use PhpCsFixer\Fixer;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet;
 use PHPUnit\Framework;
 
-abstract class AbstractConfigTestCase extends Framework\TestCase
+abstract class AbstractRuleSetTestCase extends Framework\TestCase
 {
     final public function testIsFinal()
     {
@@ -26,25 +26,19 @@ abstract class AbstractConfigTestCase extends Framework\TestCase
         $this->assertTrue($reflection->isFinal());
     }
 
-    final public function testImplementsConfigInterface()
+    final public function testImplementsRuleSetInterface()
     {
         $reflection = new \ReflectionClass($this->className());
 
-        $this->assertTrue($reflection->implementsInterface(ConfigInterface::class));
+        $this->assertTrue($reflection->implementsInterface(Config\RuleSet::class));
     }
 
     final public function testDefaults()
     {
-        $config = $this->createConfig();
+        $ruleSet = $this->createRuleSet();
 
-        $this->assertSame($this->name(), $config->getName());
-        $this->assertTrue($config->getRiskyAllowed());
-        $this->assertTrue($config->getUsingCache());
-    }
-
-    final public function testHasRules()
-    {
-        $this->assertEquals($this->rules(), $this->createConfig()->getRules());
+        $this->assertSame($this->name(), $ruleSet->name());
+        $this->assertEquals($this->rules(), $ruleSet->rules());
     }
 
     final public function testAllConfiguredRulesAreBuiltIn()
@@ -82,7 +76,7 @@ abstract class AbstractConfigTestCase extends Framework\TestCase
     {
         $this->expectException(\InvalidArgumentException::class);
 
-        $this->createConfig($header);
+        $this->createRuleSet($header);
     }
 
     /**
@@ -112,7 +106,7 @@ abstract class AbstractConfigTestCase extends Framework\TestCase
 
     final public function testHeaderCommentFixerIsDisabledByDefault()
     {
-        $rules = $this->createConfig()->getRules();
+        $rules = $this->createRuleSet()->rules();
 
         $this->assertArrayHasKey('header_comment', $rules);
         $this->assertFalse($rules['header_comment']);
@@ -122,7 +116,7 @@ abstract class AbstractConfigTestCase extends Framework\TestCase
     {
         $header = 'foo';
 
-        $rules = $this->createConfig($header)->getRules();
+        $rules = $this->createRuleSet($header)->rules();
 
         $this->assertArrayHasKey('header_comment', $rules);
 
@@ -156,9 +150,9 @@ abstract class AbstractConfigTestCase extends Framework\TestCase
      *
      * @throws \InvalidArgumentException
      *
-     * @return ConfigInterface
+     * @return Config\RuleSet
      */
-    final protected function createConfig($header = null)
+    final protected function createRuleSet($header = null)
     {
         $reflection = new \ReflectionClass($this->className());
 
@@ -196,7 +190,7 @@ abstract class AbstractConfigTestCase extends Framework\TestCase
          */
         $rules = \array_map(function () {
             return true;
-        }, $this->createConfig()->getRules());
+        }, $this->createRuleSet()->rules());
 
         return \array_keys(RuleSet::create($rules)->getRules());
     }
