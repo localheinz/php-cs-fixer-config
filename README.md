@@ -24,6 +24,7 @@ Pick one of the configurations
 
 * `Localheinz\PhpCsFixer\Config\Php56`
 * `Localheinz\PhpCsFixer\Config\Php70`
+* `Localheinz\PhpCsFixer\Config\Php71`
 
 Create a configuration file `.php_cs` in the root of your project:
 
