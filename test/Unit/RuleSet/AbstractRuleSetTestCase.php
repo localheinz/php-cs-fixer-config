@@ -71,11 +71,15 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     /**
      * @dataProvider providerInvalidHeader
      *
-     * @param $header
+     * @param mixed $header
      */
     final public function testConstructorRejectsInvalidHeader($header)
     {
         $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'Header needs to be specified as null or a string. Got "%s" instead.',
+            \is_object($header) ? \get_class($header) : \gettype($header)
+        ));
 
         $this->createRuleSet($header);
     }
@@ -91,11 +95,42 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             'boolean-false' => false,
             'float' => 3.14,
             'integer' => 90001,
+            'object' => new \stdClass(),
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
+    }
+
+    /**
+     * @dataProvider providerBlankHeader
+     *
+     * @param string $header
+     */
+    final public function testConstructorRejectsBlankHeader($header)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(\sprintf(
+            'If specified, header needs to be a non-blank string. Got "%s" instead.',
+            $header
+        ));
+
+        $this->createRuleSet($header);
+    }
+
+    /**
+     * @return \Generator
+     */
+    final public function providerBlankHeader()
+    {
+        $values = [
             'string-empty' => '',
             'string-with-line-feed-only' => "\n",
             'string-with-spaces-only' => ' ',
             'string-with-tab-only' => "\t",
-            'object' => new \stdClass(),
         ];
 
         foreach ($values as $key => $value) {
