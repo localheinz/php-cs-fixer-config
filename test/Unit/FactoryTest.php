@@ -24,7 +24,7 @@ final class FactoryTest extends Framework\TestCase
         $this->assertTrue($reflection->isFinal());
     }
 
-    public function testFromRulesThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion()
+    public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion()
     {
         $targetPhpVersion = PHP_VERSION_ID + 1;
 
@@ -58,7 +58,7 @@ final class FactoryTest extends Framework\TestCase
      *
      * @param $targetPhpVersion
      */
-    public function testFromRulesCreatesConfig($targetPhpVersion)
+    public function testFromRuleSetCreatesConfig($targetPhpVersion)
     {
         $name = 'foobarbaz';
 

@@ -16,26 +16,26 @@ use PhpCsFixer\Config;
 final class Factory
 {
     /**
-     * @param RuleSet $rules
+     * @param RuleSet $ruleSet
      *
      * @throws \RuntimeException
      *
      * @return Config
      */
-    public static function fromRuleSet(RuleSet $rules)
+    public static function fromRuleSet(RuleSet $ruleSet)
     {
-        if (PHP_VERSION_ID < $rules->targetPhpVersion()) {
+        if (PHP_VERSION_ID < $ruleSet->targetPhpVersion()) {
             throw new \RuntimeException(\sprintf(
                 'Current PHP version "%s is less than targeted PHP version "%s".',
                 PHP_VERSION_ID,
-                $rules->targetPhpVersion()
+                $ruleSet->targetPhpVersion()
             ));
         }
 
-        $config = new Config($rules->name());
+        $config = new Config($ruleSet->name());
 
         $config->setRiskyAllowed(true);
-        $config->setRules($rules->rules());
+        $config->setRules($ruleSet->rules());
 
         return $config;
     }
