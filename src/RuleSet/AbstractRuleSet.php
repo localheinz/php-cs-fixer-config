@@ -29,6 +29,11 @@ abstract class AbstractRuleSet implements RuleSet
     protected $rules = [];
 
     /**
+     * @var int
+     */
+    protected $targetPhpVersion;
+
+    /**
      * @param string $header
      *
      * @throws \InvalidArgumentException
@@ -69,5 +74,10 @@ abstract class AbstractRuleSet implements RuleSet
     final public function rules()
     {
         return $this->rules;
+    }
+
+    final public function targetPhpVersion()
+    {
+        return $this->targetPhpVersion;
     }
 }

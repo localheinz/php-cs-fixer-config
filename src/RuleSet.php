@@ -22,4 +22,9 @@ interface RuleSet
      * @return array
      */
     public function rules();
+
+    /**
+     * @return int
+     */
+    public function targetPhpVersion();
 }

@@ -39,6 +39,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         $this->assertSame($this->name(), $ruleSet->name());
         $this->assertEquals($this->rules(), $ruleSet->rules());
+        $this->assertEquals($this->targetPhpVersion(), $ruleSet->targetPhpVersion());
     }
 
     final public function testAllConfiguredRulesAreBuiltIn()
@@ -136,14 +137,19 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     abstract protected function className();
 
     /**
+     * @return string
+     */
+    abstract protected function name();
+
+    /**
      * @return array
      */
     abstract protected function rules();
 
     /**
-     * @return string
+     * @return int
      */
-    abstract protected function name();
+    abstract protected function targetPhpVersion();
 
     /**
      * @param string $header
