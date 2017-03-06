@@ -3,6 +3,7 @@
 it: cs test
 
 composer:
+	rm -rf composer.lock
 	composer self-update
 	composer validate
 	composer update
