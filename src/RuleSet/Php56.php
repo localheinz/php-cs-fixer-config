@@ -156,4 +156,6 @@ final class Php56 extends AbstractRuleSet
         ],
         'whitespace_after_comma_in_array' => true,
     ];
+
+    protected $targetPhpVersion = 50600;
 }

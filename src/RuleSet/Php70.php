@@ -156,4 +156,6 @@ final class Php70 extends AbstractRuleSet
         ],
         'whitespace_after_comma_in_array' => true,
     ];
+
+    protected $targetPhpVersion = 70000;
 }

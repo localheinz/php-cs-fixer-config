@@ -18,10 +18,20 @@ final class Factory
     /**
      * @param RuleSet $rules
      *
+     * @throws \RuntimeException
+     *
      * @return Config
      */
     public static function fromRuleSet(RuleSet $rules)
     {
+        if (PHP_VERSION_ID < $rules->targetPhpVersion()) {
+            throw new \RuntimeException(\sprintf(
+                'Current PHP version "%s is less than targeted PHP version "%s".',
+                PHP_VERSION_ID,
+                $rules->targetPhpVersion()
+            ));
+        }
+
         $config = new Config($rules->name());
 
         $config->setRiskyAllowed(true);

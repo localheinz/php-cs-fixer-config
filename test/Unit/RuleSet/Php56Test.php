@@ -169,4 +169,9 @@ final class Php56Test extends AbstractRuleSetTestCase
             'whitespace_after_comma_in_array' => true,
         ];
     }
+
+    protected function targetPhpVersion()
+    {
+        return 50600;
+    }
 }
