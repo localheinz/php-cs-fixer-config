@@ -13,5 +13,5 @@ cs: composer
 
 test: composer
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
-	composer update --prefer-dist --prefer-lowest
+	composer update --prefer-lowest
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml
