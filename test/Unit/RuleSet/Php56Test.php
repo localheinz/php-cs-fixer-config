@@ -45,7 +45,7 @@ final class Php56Test extends AbstractRuleSetTestCase
                 'spacing' => 'one',
             ],
             'declare_equal_normalize' => true,
-            'declare_strict_types' => true,
+            'declare_strict_types' => false,
             'dir_constant' => true,
             'ereg_to_preg' => true,
             'function_typehint_space' => true,
