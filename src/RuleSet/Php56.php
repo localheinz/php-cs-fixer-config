@@ -39,7 +39,7 @@ final class Php56 extends AbstractRuleSet
             'syntax' => 'without_braces',
         ],
         'doctrine_annotation_indentation' => true,
-        'doctrine_annotation_spaces' => false,
+        'doctrine_annotation_spaces' => true,
         'ereg_to_preg' => true,
         'function_typehint_space' => true,
         'function_to_constant' => false,
