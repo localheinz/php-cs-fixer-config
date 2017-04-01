@@ -42,7 +42,7 @@ final class Php71 extends AbstractRuleSet
         'doctrine_annotation_spaces' => false,
         'ereg_to_preg' => true,
         'function_typehint_space' => true,
-        'function_to_constant' => false,
+        'function_to_constant' => true,
         'general_phpdoc_annotation_remove' => false,
         'hash_to_slash_comment' => true,
         'header_comment' => false,
