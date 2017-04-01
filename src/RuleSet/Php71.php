@@ -35,7 +35,9 @@ final class Php71 extends AbstractRuleSet
         'declare_equal_normalize' => true,
         'declare_strict_types' => true,
         'dir_constant' => true,
-        'doctrine_annotation_braces' => false,
+        'doctrine_annotation_braces' => [
+            'syntax' => 'without_braces',
+        ],
         'doctrine_annotation_indentation' => false,
         'doctrine_annotation_spaces' => false,
         'ereg_to_preg' => true,
