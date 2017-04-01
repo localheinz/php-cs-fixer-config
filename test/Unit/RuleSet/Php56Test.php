@@ -50,7 +50,7 @@ final class Php56Test extends AbstractRuleSetTestCase
             'doctrine_annotation_braces' => [
                 'syntax' => 'without_braces',
             ],
-            'doctrine_annotation_indentation' => false,
+            'doctrine_annotation_indentation' => true,
             'doctrine_annotation_spaces' => false,
             'ereg_to_preg' => true,
             'function_typehint_space' => true,
