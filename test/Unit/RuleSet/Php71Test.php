@@ -65,7 +65,7 @@ final class Php71Test extends AbstractRuleSetTestCase
             ],
             'linebreak_after_opening_tag' => true,
             'lowercase_cast' => true,
-            'magic_constant_casing' => false,
+            'magic_constant_casing' => true,
             'mb_str_functions' => true,
             'method_separation' => true,
             'modernize_types_casting' => true,
