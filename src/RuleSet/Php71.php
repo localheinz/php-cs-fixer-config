@@ -52,7 +52,9 @@ final class Php71 extends AbstractRuleSet
             'use_yoda_style' => true,
         ],
         'linebreak_after_opening_tag' => true,
-        'list_syntax' => false,
+        'list_syntax' => [
+            'syntax' => 'short',
+        ],
         'lowercase_cast' => true,
         'magic_constant_casing' => true,
         'mb_str_functions' => true,
