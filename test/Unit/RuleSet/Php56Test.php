@@ -64,6 +64,7 @@ final class Php56Test extends AbstractRuleSetTestCase
                 'use_yoda_style' => true,
             ],
             'linebreak_after_opening_tag' => true,
+            'list_syntax' => false,
             'lowercase_cast' => true,
             'magic_constant_casing' => true,
             'mb_str_functions' => true,
@@ -123,6 +124,7 @@ final class Php56Test extends AbstractRuleSetTestCase
             'php_unit_dedicate_assert' => true,
             'php_unit_fqcn_annotation' => true,
             'php_unit_strict' => false,
+            'php_unit_test_class_requires_covers' => false,
             'phpdoc_add_missing_param_annotation' => [
                 'only_untyped' => false,
             ],
