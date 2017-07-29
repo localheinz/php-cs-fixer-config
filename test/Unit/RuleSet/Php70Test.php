@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Copyright (c) 2017 Andreas Möller
+ * Copyright (c) 2017 Andreas Möller.
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -29,6 +29,7 @@ final class Php70Test extends AbstractRuleSetTestCase
     {
         return [
             '@PSR2' => true,
+            'align_multiline_comment' => false,
             'array_syntax' => [
                 'syntax' => 'short',
             ],
@@ -38,6 +39,7 @@ final class Php70Test extends AbstractRuleSetTestCase
             ],
             'blank_line_after_opening_tag' => true,
             'blank_line_before_return' => true,
+            'blank_line_before_statement' => false,
             'cast_spaces' => true,
             'class_keyword_remove' => false,
             'combine_consecutive_unsets' => true,
@@ -50,6 +52,7 @@ final class Php70Test extends AbstractRuleSetTestCase
             'doctrine_annotation_braces' => [
                 'syntax' => 'without_braces',
             ],
+            'doctrine_annotation_array_assignment' => false,
             'doctrine_annotation_indentation' => true,
             'doctrine_annotation_spaces' => true,
             'ereg_to_preg' => true,
@@ -99,6 +102,7 @@ final class Php70Test extends AbstractRuleSetTestCase
             ],
             'no_multiline_whitespace_around_double_arrow' => true,
             'no_multiline_whitespace_before_semicolons' => true,
+            'no_null_property_initialization' => false,
             'no_php4_constructor' => false,
             'no_short_bool_cast' => true,
             'no_short_echo_tag' => true,
@@ -148,6 +152,7 @@ final class Php70Test extends AbstractRuleSetTestCase
             'phpdoc_to_comment' => false,
             'phpdoc_trim' => true,
             'phpdoc_types' => true,
+            'phpdoc_types_order' => false,
             'phpdoc_var_without_name' => true,
             'pow_to_exponentiation' => true,
             'pre_increment' => true,
@@ -162,6 +167,7 @@ final class Php70Test extends AbstractRuleSetTestCase
             'silenced_deprecation_error' => false,
             'simplified_null_return' => false,
             'single_blank_line_before_namespace' => true,
+            'single_line_comment_style' => false,
             'single_quote' => true,
             'space_after_semicolon' => true,
             'standardize_not_equals' => true,
@@ -176,6 +182,7 @@ final class Php70Test extends AbstractRuleSetTestCase
                 'method',
                 'property',
             ],
+            'void_return' => false,
             'whitespace_after_comma_in_array' => true,
         ];
     }
