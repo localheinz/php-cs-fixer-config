@@ -17,7 +17,9 @@ final class Php71 extends AbstractRuleSet
 
     protected $rules = [
         '@PSR2' => true,
-        'align_multiline_comment' => false,
+        'align_multiline_comment' => [
+            'comment_type' => 'all_multiline',
+        ],
         'array_syntax' => [
             'syntax' => 'short',
         ],
