@@ -28,8 +28,12 @@ final class Php56 extends AbstractRuleSet
             'align_equals' => false,
         ],
         'blank_line_after_opening_tag' => true,
-        'blank_line_before_return' => true,
-        'blank_line_before_statement' => false,
+        'blank_line_before_return' => false,
+        'blank_line_before_statement' => [
+            'statements' => [
+                'return',
+            ],
+        ],
         'cast_spaces' => true,
         'class_keyword_remove' => false,
         'combine_consecutive_unsets' => true,
