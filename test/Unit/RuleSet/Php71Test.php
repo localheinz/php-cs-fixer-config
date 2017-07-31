@@ -58,7 +58,7 @@ final class Php71Test extends AbstractRuleSetTestCase
             'doctrine_annotation_braces' => [
                 'syntax' => 'without_braces',
             ],
-            'doctrine_annotation_array_assignment' => false,
+            'doctrine_annotation_array_assignment' => true,
             'doctrine_annotation_indentation' => true,
             'doctrine_annotation_spaces' => true,
             'ereg_to_preg' => true,
