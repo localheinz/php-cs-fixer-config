@@ -154,7 +154,11 @@ $ make cs
 
 ## Contributing
 
-Please have a look at [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
+
+## Code of Conduct
+
+Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 
 ## License
 
