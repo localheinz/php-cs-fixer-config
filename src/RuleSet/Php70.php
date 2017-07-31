@@ -146,7 +146,10 @@ final class Php70 extends AbstractRuleSet
         'phpdoc_to_comment' => false,
         'phpdoc_trim' => true,
         'phpdoc_types' => true,
-        'phpdoc_types_order' => false,
+        'phpdoc_types_order' => [
+            'null_adjustment' => 'always_first',
+            'sort_algorithm' => 'alpha',
+        ],
         'phpdoc_var_without_name' => true,
         'pow_to_exponentiation' => true,
         'pre_increment' => true,
