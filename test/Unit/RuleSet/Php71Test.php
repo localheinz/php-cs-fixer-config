@@ -110,7 +110,7 @@ final class Php71Test extends AbstractRuleSetTestCase
             ],
             'no_multiline_whitespace_around_double_arrow' => true,
             'no_multiline_whitespace_before_semicolons' => true,
-            'no_null_property_initialization' => false,
+            'no_null_property_initialization' => true,
             'no_php4_constructor' => false,
             'no_short_bool_cast' => true,
             'no_short_echo_tag' => true,
