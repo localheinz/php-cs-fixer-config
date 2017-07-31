@@ -112,7 +112,7 @@ final class FactoryTest extends Framework\TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|Config\RuleSet
+     * @return Config\RuleSet|\PHPUnit_Framework_MockObject_MockObject
      */
     private function createRuleSetMock()
     {
