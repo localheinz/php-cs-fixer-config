@@ -225,7 +225,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     private function configuredFixers()
     {
         /**
-         * RuleSet::create() removes disabled fixers, to let's just enable them to make sure they not removed.
+         * RuleSet::create() removes disabled fixers, to let's just enable them to make sure they are not removed.
          *
          * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/2361
          */
