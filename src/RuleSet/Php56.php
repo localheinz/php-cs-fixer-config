@@ -121,7 +121,7 @@ final class Php56 extends AbstractRuleSet
         'no_trailing_comma_in_list_call' => true,
         'no_trailing_comma_in_singleline_array' => true,
         'no_unneeded_control_parentheses' => true,
-        'no_unneeded_curly_braces' => false,
+        'no_unneeded_curly_braces' => true,
         'no_unneeded_final_method' => false,
         'no_unreachable_default_argument_value' => true,
         'no_unused_imports' => true,
