@@ -19,6 +19,21 @@ use PHPUnit\Framework;
 
 abstract class AbstractRuleSetTestCase extends Framework\TestCase
 {
+    /**
+     * @var string
+     */
+    protected $name;
+
+    /**
+     * @var array
+     */
+    protected $rules;
+
+    /**
+     * @var int
+     */
+    protected $targetPhpVersion;
+
     final public function testIsFinal()
     {
         $reflection = new \ReflectionClass($this->className());
@@ -37,9 +52,9 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     {
         $ruleSet = $this->createRuleSet();
 
-        $this->assertSame($this->name(), $ruleSet->name());
-        $this->assertEquals($this->rules(), $ruleSet->rules());
-        $this->assertEquals($this->targetPhpVersion(), $ruleSet->targetPhpVersion());
+        $this->assertSame($this->name, $ruleSet->name());
+        $this->assertEquals($this->rules, $ruleSet->rules());
+        $this->assertEquals($this->targetPhpVersion, $ruleSet->targetPhpVersion());
     }
 
     final public function testAllConfiguredRulesAreBuiltIn()
@@ -169,22 +184,18 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     /**
      * @return string
      */
-    abstract protected function className();
-
-    /**
-     * @return string
-     */
-    abstract protected function name();
-
-    /**
-     * @return array
-     */
-    abstract protected function rules();
-
-    /**
-     * @return int
-     */
-    abstract protected function targetPhpVersion();
+    final protected function className()
+    {
+        return \preg_replace(
+            '/Test$/',
+            '',
+            \str_replace(
+                '\Test\Unit',
+                '',
+                static::class
+            )
+        );
+    }
 
     /**
      * @param string $header
