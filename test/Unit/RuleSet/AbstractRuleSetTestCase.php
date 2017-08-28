@@ -182,6 +182,42 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     }
 
     /**
+     * @dataProvider providerRuleNames
+     *
+     * @param array  $ruleNames
+     * @param string $source
+     */
+    final public function testRulesAreSortedByName($source, $ruleNames)
+    {
+        $sorted = $ruleNames;
+
+        \sort($sorted);
+
+        $this->assertEquals($sorted, $ruleNames, \sprintf(
+            'Failed to assert that the rules are sorted by name in %s',
+            $source
+        ));
+    }
+
+    /**
+     * @return \Generator
+     */
+    final public function providerRuleNames()
+    {
+        $values = [
+            'rule set' => $this->createRuleSet()->rules(),
+            'test' => $this->rules,
+        ];
+
+        foreach ($values as $source => $rules) {
+            yield [
+                $source,
+                \array_keys($rules),
+            ];
+        }
+    }
+
+    /**
      * @return string
      */
     final protected function className()
