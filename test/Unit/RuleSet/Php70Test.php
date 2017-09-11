@@ -51,6 +51,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         ],
         'cast_spaces' => true,
         'class_keyword_remove' => false,
+        'combine_consecutive_issets' => false,
         'combine_consecutive_unsets' => true,
         'concat_space' => [
             'spacing' => 'one',
@@ -108,6 +109,7 @@ final class Php70Test extends AbstractRuleSetTestCase
             'use',
             'useTrait',
         ],
+        'no_homoglyph_names' => false,
         'no_leading_import_slash' => true,
         'no_leading_namespace_whitespace' => true,
         'no_mixed_echo_print' => [
@@ -203,6 +205,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         ],
         'void_return' => false,
         'whitespace_after_comma_in_array' => true,
+        'yoda_style' => false,
     ];
 
     protected $targetPhpVersion = 70000;
