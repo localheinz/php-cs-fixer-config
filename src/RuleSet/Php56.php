@@ -73,9 +73,7 @@ final class Php56 extends AbstractRuleSet
         'header_comment' => false,
         'heredoc_to_nowdoc' => true,
         'include' => true,
-        'is_null' => [
-            'use_yoda_style' => true,
-        ],
+        'is_null' => true,
         'linebreak_after_opening_tag' => true,
         'list_syntax' => false,
         'lowercase_cast' => true,
