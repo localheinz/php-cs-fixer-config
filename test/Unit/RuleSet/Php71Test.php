@@ -208,7 +208,11 @@ final class Php71Test extends AbstractRuleSetTestCase
         ],
         'void_return' => false,
         'whitespace_after_comma_in_array' => true,
-        'yoda_style' => false,
+        'yoda_style' => [
+            'equal' => true,
+            'identical' => true,
+            'less_and_greater' => true,
+        ],
     ];
 
     protected $targetPhpVersion = 70100;
