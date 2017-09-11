@@ -73,9 +73,7 @@ final class Php71 extends AbstractRuleSet
         'header_comment' => false,
         'heredoc_to_nowdoc' => true,
         'include' => true,
-        'is_null' => [
-            'use_yoda_style' => true,
-        ],
+        'is_null' => true,
         'linebreak_after_opening_tag' => true,
         'list_syntax' => [
             'syntax' => 'short',
@@ -208,7 +206,11 @@ final class Php71 extends AbstractRuleSet
         ],
         'void_return' => false,
         'whitespace_after_comma_in_array' => true,
-        'yoda_style' => false,
+        'yoda_style' => [
+            'equal' => true,
+            'identical' => true,
+            'less_and_greater' => true,
+        ],
     ];
 
     protected $targetPhpVersion = 70100;
