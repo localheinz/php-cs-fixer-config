@@ -51,7 +51,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         ],
         'cast_spaces' => true,
         'class_keyword_remove' => false,
-        'combine_consecutive_issets' => false,
+        'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
         'concat_space' => [
             'spacing' => 'one',
