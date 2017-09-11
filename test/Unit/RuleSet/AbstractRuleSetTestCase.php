@@ -64,6 +64,8 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             $this->builtInFixers()
         );
 
+        \sort($fixersNotBuiltIn);
+
         $this->assertEmpty($fixersNotBuiltIn, \sprintf(
             'Failed to assert that fixers for the rules "%s" are built in',
             \implode('", "', $fixersNotBuiltIn)
@@ -76,6 +78,8 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             $this->builtInFixers(),
             $this->configuredFixers()
         );
+
+        \sort($fixersWithoutConfiguration);
 
         $this->assertEmpty($fixersWithoutConfiguration, \sprintf(
             'Failed to assert that built-in fixers for the rules "%s" are configured',
