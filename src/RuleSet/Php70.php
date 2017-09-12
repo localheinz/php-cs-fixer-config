@@ -47,6 +47,7 @@ final class Php70 extends AbstractRuleSet
                 'throw',
                 'try',
                 'while',
+                'yield',
             ],
         ],
         'cast_spaces' => true,
