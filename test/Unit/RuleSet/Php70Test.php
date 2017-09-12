@@ -47,6 +47,7 @@ final class Php70Test extends AbstractRuleSetTestCase
                 'throw',
                 'try',
                 'while',
+                'yield',
             ],
         ],
         'cast_spaces' => true,
