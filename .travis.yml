@@ -37,8 +37,7 @@ install:
   - if [[ "$WITH_LOWEST" == "true" ]]; then composer update --prefer-lowest; else composer install; fi
 
 before_script:
-  - mkdir -p "$HOME/.php-cs-fixer"
-  - mkdir -p build/logs
+  - mkdir -p $HOME/.php-cs-fixer
 
 script:
   - if [[ "$WITH_CS" == "true" ]]; then vendor/bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose; fi
