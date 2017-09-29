@@ -24,8 +24,7 @@ final class Php56Test extends AbstractRuleSetTestCase
             'syntax' => 'short',
         ],
         'binary_operator_spaces' => [
-            'align_double_arrow' => false,
-            'align_equals' => false,
+            'default' => 'single_space',
         ],
         'blank_line_after_opening_tag' => true,
         'blank_line_before_return' => false,
