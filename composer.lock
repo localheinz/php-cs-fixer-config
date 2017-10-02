@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6694f266f030059fe3ce1799ee2d83f",
+    "content-hash": "f104f608e4790f006d4cc2eb425aaf53",
     "packages": [
         {
             "name": "composer/semver",
@@ -192,16 +192,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.7.0",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "e4e93a120117e879cfc1f231fbf29274707cd834"
+                "reference": "ab2e189d94698178988f9732bc75bb4ce8d16f77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/e4e93a120117e879cfc1f231fbf29274707cd834",
-                "reference": "e4e93a120117e879cfc1f231fbf29274707cd834",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/ab2e189d94698178988f9732bc75bb4ce8d16f77",
+                "reference": "ab2e189d94698178988f9732bc75bb4ce8d16f77",
                 "shasum": ""
             },
             "require": {
@@ -241,11 +241,6 @@
                 "php-cs-fixer"
             ],
             "type": "application",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "PhpCsFixer\\": "src/"
@@ -273,7 +268,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-09-29T15:19:05+00:00"
+            "time": "2017-10-02T12:16:05+00:00"
         },
         {
             "name": "gecko-packages/gecko-php-unit",
