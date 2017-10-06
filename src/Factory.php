@@ -16,6 +16,8 @@ use PhpCsFixer\Config;
 final class Factory
 {
     /**
+     * Creates a configuration based on a rule set.
+     *
      * @param RuleSet $ruleSet
      *
      * @throws \RuntimeException
