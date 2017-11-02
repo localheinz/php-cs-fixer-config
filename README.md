@@ -1,9 +1,7 @@
 # php-cs-fixer-config
 
 [![Build Status](https://travis-ci.org/localheinz/php-cs-fixer-config.svg?branch=master)](https://travis-ci.org/localheinz/php-cs-fixer-config)
-[![Code Climate](https://codeclimate.com/github/localheinz/php-cs-fixer-config/badges/gpa.svg)](https://codeclimate.com/github/localheinz/php-cs-fixer-config)
-[![Test Coverage](https://codeclimate.com/github/localheinz/php-cs-fixer-config/badges/coverage.svg)](https://codeclimate.com/github/localheinz/php-cs-fixer-config/coverage)
-[![Issue Count](https://codeclimate.com/github/localheinz/php-cs-fixer-config/badges/issue_count.svg)](https://codeclimate.com/github/localheinz/php-cs-fixer-config)
+[![codecov](https://codecov.io/gh/localheinz/php-cs-fixer-config/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/php-cs-fixer-config)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/php-cs-fixer-config/v/stable)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
 [![Total Downloads](https://poser.pugx.org/localheinz/php-cs-fixer-config/downloads)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
 
