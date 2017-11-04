@@ -154,7 +154,10 @@ final class Php70 extends AbstractRuleSet
         'php_unit_namespaced' => [
             'target' => 'newest',
         ],
-        'php_unit_no_expectation_annotation' => false,
+        'php_unit_no_expectation_annotation' => [
+            'target' => 'newest',
+            'use_class_const' => true,
+        ],
         'php_unit_strict' => false,
         'php_unit_test_class_requires_covers' => false,
         'phpdoc_add_missing_param_annotation' => [
