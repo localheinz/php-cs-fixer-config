@@ -146,7 +146,9 @@ final class Php70 extends AbstractRuleSet
         'ordered_imports' => true,
         'php_unit_construct' => true,
         'php_unit_dedicate_assert' => true,
-        'php_unit_expectation' => false,
+        'php_unit_expectation' => [
+            'target' => 'newest',
+        ],
         'php_unit_fqcn_annotation' => true,
         'php_unit_mock' => false,
         'php_unit_namespaced' => false,
