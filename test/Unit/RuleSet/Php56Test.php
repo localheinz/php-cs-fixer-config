@@ -150,7 +150,7 @@ final class Php56Test extends AbstractRuleSetTestCase
             'target' => 'newest',
         ],
         'php_unit_fqcn_annotation' => true,
-        'php_unit_mock' => false,
+        'php_unit_mock' => true,
         'php_unit_namespaced' => false,
         'php_unit_no_expectation_annotation' => false,
         'php_unit_strict' => false,
