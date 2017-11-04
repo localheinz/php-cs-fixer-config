@@ -74,7 +74,9 @@ final class Php71 extends AbstractRuleSet
         'header_comment' => false,
         'heredoc_to_nowdoc' => true,
         'include' => true,
-        'increment_style' => false,
+        'increment_style' => [
+            'style' => 'pre',
+        ],
         'is_null' => true,
         'linebreak_after_opening_tag' => true,
         'list_syntax' => [
@@ -182,7 +184,7 @@ final class Php71 extends AbstractRuleSet
         ],
         'phpdoc_var_without_name' => true,
         'pow_to_exponentiation' => true,
-        'pre_increment' => true,
+        'pre_increment' => false,
         'protected_to_private' => true,
         'psr0' => false,
         'psr4' => true,
