@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b00ffab195fec8350efe241768963cc3",
+    "content-hash": "7df53c5d6c8ab653465de55cdadb055c",
     "packages": [
         {
             "name": "composer/semver",
@@ -192,16 +192,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.7.2",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "8cba96a0ef2ab5b54d8fc038c3d65a524b7e1e06"
+                "reference": "89e7b083f27241e03dd776cb8d6781c77e341db6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/8cba96a0ef2ab5b54d8fc038c3d65a524b7e1e06",
-                "reference": "8cba96a0ef2ab5b54d8fc038c3d65a524b7e1e06",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/89e7b083f27241e03dd776cb8d6781c77e341db6",
+                "reference": "89e7b083f27241e03dd776cb8d6781c77e341db6",
                 "shasum": ""
             },
             "require": {
@@ -211,7 +211,7 @@
                 "ext-tokenizer": "*",
                 "gecko-packages/gecko-php-unit": "^2.0 || ^3.0",
                 "php": "^5.6 || >=7.0 <7.3",
-                "php-cs-fixer/diff": "^1.0",
+                "php-cs-fixer/diff": "^1.2",
                 "symfony/console": "^3.2 || ^4.0",
                 "symfony/event-dispatcher": "^3.0 || ^4.0",
                 "symfony/filesystem": "^3.0 || ^4.0",
@@ -268,7 +268,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2017-11-02T12:53:43+00:00"
+            "time": "2017-11-03T02:21:46+00:00"
         },
         {
             "name": "gecko-packages/gecko-php-unit",
