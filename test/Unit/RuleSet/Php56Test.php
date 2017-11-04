@@ -53,6 +53,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'class_keyword_remove' => false,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
+        'compact_nullable_typehint' => false,
         'concat_space' => [
             'spacing' => 'one',
         ],
@@ -73,6 +74,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'header_comment' => false,
         'heredoc_to_nowdoc' => true,
         'include' => true,
+        'increment_style' => false,
         'is_null' => true,
         'linebreak_after_opening_tag' => true,
         'list_syntax' => false,
@@ -142,7 +144,11 @@ final class Php56Test extends AbstractRuleSetTestCase
         'ordered_imports' => true,
         'php_unit_construct' => true,
         'php_unit_dedicate_assert' => true,
+        'php_unit_expectation' => false,
         'php_unit_fqcn_annotation' => true,
+        'php_unit_mock' => false,
+        'php_unit_namespaced' => false,
+        'php_unit_no_expectation_annotation' => false,
         'php_unit_strict' => false,
         'php_unit_test_class_requires_covers' => false,
         'phpdoc_add_missing_param_annotation' => [
