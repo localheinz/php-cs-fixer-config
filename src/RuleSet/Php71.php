@@ -53,7 +53,7 @@ final class Php71 extends AbstractRuleSet
         'class_keyword_remove' => false,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
-        'compact_nullable_typehint' => false,
+        'compact_nullable_typehint' => true,
         'concat_space' => [
             'spacing' => 'one',
         ],
