@@ -168,9 +168,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'phpdoc_indent' => true,
         'phpdoc_inline_tag' => true,
         'phpdoc_no_access' => true,
-        'phpdoc_no_alias_tag' => [
-            'type' => 'var',
-        ],
+        'phpdoc_no_alias_tag' => true,
         'phpdoc_no_empty_return' => true,
         'phpdoc_no_package' => true,
         'phpdoc_no_useless_inheritdoc' => true,
