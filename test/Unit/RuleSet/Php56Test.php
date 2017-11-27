@@ -6,7 +6,7 @@
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  *
- * @link https://github.com/localheinz/php-cs-fixer-config
+ * @see https://github.com/localheinz/php-cs-fixer-config
  */
 
 namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
@@ -168,9 +168,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'phpdoc_indent' => true,
         'phpdoc_inline_tag' => true,
         'phpdoc_no_access' => true,
-        'phpdoc_no_alias_tag' => [
-            'type' => 'var',
-        ],
+        'phpdoc_no_alias_tag' => true,
         'phpdoc_no_empty_return' => true,
         'phpdoc_no_package' => true,
         'phpdoc_no_useless_inheritdoc' => true,
