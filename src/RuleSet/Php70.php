@@ -170,7 +170,7 @@ final class Php70 extends AbstractRuleSet
             'use_class_const' => true,
         ],
         'php_unit_strict' => false,
-        'php_unit_test_annotation' => false,
+        'php_unit_test_annotation' => true,
         'php_unit_test_class_requires_covers' => false,
         'phpdoc_add_missing_param_annotation' => [
             'only_untyped' => false,
