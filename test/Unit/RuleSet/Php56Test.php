@@ -76,7 +76,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'escape_implicit_backslashes' => true,
         'explicit_indirect_variable' => false,
         'explicit_string_variable' => true,
-        'final_internal_class' => false,
+        'final_internal_class' => true,
         'function_to_constant' => true,
         'function_typehint_space' => true,
         'general_phpdoc_annotation_remove' => false,
