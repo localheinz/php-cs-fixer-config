@@ -73,7 +73,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         'doctrine_annotation_indentation' => true,
         'doctrine_annotation_spaces' => true,
         'ereg_to_preg' => true,
-        'escape_implicit_backslashes' => false,
+        'escape_implicit_backslashes' => true,
         'explicit_indirect_variable' => false,
         'explicit_string_variable' => false,
         'final_internal_class' => false,
