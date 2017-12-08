@@ -99,7 +99,7 @@ final class Php71 extends AbstractRuleSet
             'ensure_fully_multiline' => true,
             'keep_multiple_spaces_after_comma' => false,
         ],
-        'method_chaining_indentation' => false,
+        'method_chaining_indentation' => true,
         'method_separation' => true,
         'modernize_types_casting' => true,
         'native_function_casing' => true,
