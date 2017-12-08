@@ -50,7 +50,12 @@ final class Php70 extends AbstractRuleSet
             ],
         ],
         'cast_spaces' => true,
-        'class_attributes_separation' => false,
+        'class_attributes_separation' => [
+            'elements' => [
+                'method',
+                'property',
+            ],
+        ],
         'class_keyword_remove' => false,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
