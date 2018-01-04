@@ -111,6 +111,49 @@ final class FactoryTest extends Framework\TestCase
         }
     }
 
+    public function testFromRuleSetCreatesConfigWithOverrideRules()
+    {
+        $name = 'foobarbaz';
+
+        $rules = [
+            'foo' => true,
+            'bar' => [
+                'baz',
+            ],
+        ];
+
+        $overrideRules = [
+            'foo' => false,
+        ];
+
+        $ruleSet = $this->createRuleSetMock();
+
+        $ruleSet
+            ->expects($this->once())
+            ->method('name')
+            ->willReturn($name);
+
+        $ruleSet
+            ->expects($this->once())
+            ->method('rules')
+            ->willReturn($rules);
+
+        $ruleSet
+            ->expects($this->atLeastOnce())
+            ->method('targetPhpVersion')
+            ->willReturn(PHP_VERSION_ID);
+
+        $config = Config\Factory::fromRuleSet(
+            $ruleSet,
+            $overrideRules
+        );
+
+        $this->assertInstanceOf(ConfigInterface::class, $config);
+        $this->assertTrue($config->getUsingCache());
+        $this->assertTrue($config->getRiskyAllowed());
+        $this->assertSame(\array_merge($rules, $overrideRules), $config->getRules());
+    }
+
     /**
      * @return Config\RuleSet|\PHPUnit_Framework_MockObject_MockObject
      */

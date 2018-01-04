@@ -44,6 +44,8 @@ $config->setCacheFile($cacheDir . '/.php_cs.cache');
 return $config;
 ```
 
+### Configuration with header
+
 :bulb: Optionally specify a header:
 
 ```php
@@ -85,6 +87,29 @@ file headers will be added to PHP files, for example:
  *
  * @link https://github.com/localheinz/php-cs-fixer-config
  */
+```
+
+### Configuration with override rules
+
+:bulb: Optionally override rules from a rule set by passing in an array of rules to be merged in:
+
+```php
+<?php
+
+use Localheinz\PhpCsFixer\Config;
+
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56(), [
+    'mb_str_functions' => false,
+    'strict_comparison' => false,
+]);
+
+$config->getFinder()->in(__DIR__);
+
+$cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
+
+$config->setCacheFile($cacheDir . '/.php_cs.cache');
+
+return $config;
 ```
 
 ### Git

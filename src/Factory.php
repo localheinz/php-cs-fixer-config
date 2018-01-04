@@ -19,12 +19,13 @@ final class Factory
      * Creates a configuration based on a rule set.
      *
      * @param RuleSet $ruleSet
+     * @param array   $overrideRules
      *
      * @throws \RuntimeException
      *
      * @return Config
      */
-    public static function fromRuleSet(RuleSet $ruleSet)
+    public static function fromRuleSet(RuleSet $ruleSet, array $overrideRules = [])
     {
         if (PHP_VERSION_ID < $ruleSet->targetPhpVersion()) {
             throw new \RuntimeException(\sprintf(
@@ -37,7 +38,10 @@ final class Factory
         $config = new Config($ruleSet->name());
 
         $config->setRiskyAllowed(true);
-        $config->setRules($ruleSet->rules());
+        $config->setRules(\array_merge(
+            $ruleSet->rules(),
+            $overrideRules
+        ));
 
         return $config;
     }
