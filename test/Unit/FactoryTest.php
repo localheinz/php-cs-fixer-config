@@ -28,19 +28,19 @@ final class FactoryTest extends Framework\TestCase
     {
         $targetPhpVersion = PHP_VERSION_ID + 1;
 
-        $ruleSet = $this->createRuleSetMock();
+        $ruleSet = $this->prophesize(Config\RuleSet::class);
 
         $ruleSet
-            ->expects($this->never())
-            ->method('name');
+            ->name()
+            ->shouldNotBeCalled();
 
         $ruleSet
-            ->expects($this->never())
-            ->method('rules');
+            ->rules()
+            ->shouldNotBeCalled();
 
         $ruleSet
-            ->expects($this->atLeastOnce())
-            ->method('targetPhpVersion')
+            ->targetPhpVersion()
+            ->shouldBeCalled()
             ->willReturn($targetPhpVersion);
 
         $this->expectException(\RuntimeException::class);
@@ -50,7 +50,7 @@ final class FactoryTest extends Framework\TestCase
             $targetPhpVersion
         ));
 
-        Config\Factory::fromRuleSet($ruleSet);
+        Config\Factory::fromRuleSet($ruleSet->reveal());
     }
 
     /**
@@ -69,24 +69,24 @@ final class FactoryTest extends Framework\TestCase
             ],
         ];
 
-        $ruleSet = $this->createRuleSetMock();
+        $ruleSet = $this->prophesize(Config\RuleSet::class);
 
         $ruleSet
-            ->expects($this->once())
-            ->method('name')
+            ->name()
+            ->shouldBeCalled()
             ->willReturn($name);
 
         $ruleSet
-            ->expects($this->once())
-            ->method('rules')
+            ->rules()
+            ->shouldBeCalled()
             ->willReturn($rules);
 
         $ruleSet
-            ->expects($this->atLeastOnce())
-            ->method('targetPhpVersion')
+            ->targetPhpVersion()
+            ->shouldBeCalled()
             ->willReturn($targetPhpVersion);
 
-        $config = Config\Factory::fromRuleSet($ruleSet);
+        $config = Config\Factory::fromRuleSet($ruleSet->reveal());
 
         $this->assertInstanceOf(ConfigInterface::class, $config);
         $this->assertTrue($config->getUsingCache());
@@ -126,25 +126,25 @@ final class FactoryTest extends Framework\TestCase
             'foo' => false,
         ];
 
-        $ruleSet = $this->createRuleSetMock();
+        $ruleSet = $this->prophesize(Config\RuleSet::class);
 
         $ruleSet
-            ->expects($this->once())
-            ->method('name')
+            ->name()
+            ->shouldBeCalled()
             ->willReturn($name);
 
         $ruleSet
-            ->expects($this->once())
-            ->method('rules')
+            ->rules()
+            ->shouldBeCalled()
             ->willReturn($rules);
 
         $ruleSet
-            ->expects($this->atLeastOnce())
-            ->method('targetPhpVersion')
+            ->targetPhpVersion()
+            ->shouldBeCalled()
             ->willReturn(PHP_VERSION_ID);
 
         $config = Config\Factory::fromRuleSet(
-            $ruleSet,
+            $ruleSet->reveal(),
             $overrideRules
         );
 
@@ -152,13 +152,5 @@ final class FactoryTest extends Framework\TestCase
         $this->assertTrue($config->getUsingCache());
         $this->assertTrue($config->getRiskyAllowed());
         $this->assertSame(\array_merge($rules, $overrideRules), $config->getRules());
-    }
-
-    /**
-     * @return Config\RuleSet|\PHPUnit_Framework_MockObject_MockObject
-     */
-    private function createRuleSetMock()
-    {
-        return $this->createMock(Config\RuleSet::class);
     }
 }
