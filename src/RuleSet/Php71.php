@@ -123,7 +123,7 @@ final class Php71 extends AbstractRuleSet
                 'square_brace_block',
                 'throw',
                 'use',
-                'useTrait',
+                'use_trait',
             ],
         ],
         'no_homoglyph_names' => true,
