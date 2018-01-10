@@ -115,8 +115,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'no_empty_comment' => true,
         'no_empty_phpdoc' => true,
         'no_empty_statement' => true,
-        'no_extra_blank_lines' => false,
-        'no_extra_consecutive_blank_lines' => [
+        'no_extra_blank_lines' => [
             'tokens' => [
                 'break',
                 'case',
@@ -133,6 +132,7 @@ final class Php56Test extends AbstractRuleSetTestCase
                 'use_trait',
             ],
         ],
+        'no_extra_consecutive_blank_lines' => false,
         'no_homoglyph_names' => true,
         'no_leading_import_slash' => true,
         'no_leading_namespace_whitespace' => true,
