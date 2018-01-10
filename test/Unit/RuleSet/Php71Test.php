@@ -23,7 +23,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         'array_syntax' => [
             'syntax' => 'short',
         ],
-        'backtick_to_shell_exec' => false,
+        'backtick_to_shell_exec' => true,
         'binary_operator_spaces' => [
             'default' => 'single_space',
         ],
