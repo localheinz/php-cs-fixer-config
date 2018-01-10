@@ -103,7 +103,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         'method_chaining_indentation' => true,
         'method_separation' => true,
         'modernize_types_casting' => true,
-        'multiline_comment_opening_closing' => false,
+        'multiline_comment_opening_closing' => true,
         'multiline_whitespace_before_semicolons' => [
             'strategy' => 'no_multi_line',
         ],
