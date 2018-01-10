@@ -23,6 +23,7 @@ final class Php70 extends AbstractRuleSet
         'array_syntax' => [
             'syntax' => 'short',
         ],
+        'backtick_to_shell_exec' => false,
         'binary_operator_spaces' => [
             'default' => 'single_space',
         ],
@@ -100,6 +101,8 @@ final class Php70 extends AbstractRuleSet
         'method_chaining_indentation' => true,
         'method_separation' => true,
         'modernize_types_casting' => true,
+        'multiline_comment_opening_closing' => false,
+        'multiline_whitespace_before_semicolons' => false,
         'native_function_casing' => true,
         'native_function_invocation' => true,
         'new_with_braces' => true,
@@ -110,6 +113,7 @@ final class Php70 extends AbstractRuleSet
         'no_empty_comment' => true,
         'no_empty_phpdoc' => true,
         'no_empty_statement' => true,
+        'no_extra_blank_lines' => false,
         'no_extra_consecutive_blank_lines' => [
             'tokens' => [
                 'break',
