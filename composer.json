@@ -2,6 +2,7 @@
     "name": "localheinz/php-cs-fixer-config",
     "type": "library",
     "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
+    "homepage": "https://github.com/localheinz/php-cs-fixer-config",
     "license": "MIT",
     "authors": [
         {
@@ -29,5 +30,9 @@
         "psr-4": {
             "Localheinz\\PhpCsFixer\\Config\\Test\\": "test"
         }
+    },
+    "support": {
+        "issues": "https://github.com/localheinz/php-cs-fixer-config/issues",
+        "source": "https://github.com/localheinz/php-cs-fixer-config"
     }
 }
