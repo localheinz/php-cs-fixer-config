@@ -67,7 +67,9 @@ final class Php56Test extends AbstractRuleSetTestCase
         'declare_equal_normalize' => true,
         'declare_strict_types' => false,
         'dir_constant' => true,
-        'doctrine_annotation_array_assignment' => true,
+        'doctrine_annotation_array_assignment' => [
+            'operator' => ':',
+        ],
         'doctrine_annotation_braces' => [
             'syntax' => 'without_braces',
         ],
