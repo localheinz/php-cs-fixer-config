@@ -244,7 +244,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         'single_line_comment_style' => false,
         'single_quote' => true,
         'space_after_semicolon' => true,
-        'standardize_increment' => false,
+        'standardize_increment' => true,
         'standardize_not_equals' => true,
         'static_lambda' => false,
         'strict_comparison' => true,
