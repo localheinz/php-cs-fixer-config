@@ -20,7 +20,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         'align_multiline_comment' => [
             'comment_type' => 'all_multiline',
         ],
-        'array_indentation' => false,
+        'array_indentation' => true,
         'array_syntax' => [
             'syntax' => 'short',
         ],
