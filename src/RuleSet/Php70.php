@@ -91,7 +91,7 @@ final class Php70 extends AbstractRuleSet
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
         'final_internal_class' => true,
-        'fully_qualified_strict_types' => false,
+        'fully_qualified_strict_types' => true,
         'function_to_constant' => true,
         'function_typehint_space' => true,
         'general_phpdoc_annotation_remove' => false,
