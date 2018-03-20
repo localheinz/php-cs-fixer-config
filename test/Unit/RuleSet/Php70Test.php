@@ -123,7 +123,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         'native_function_invocation' => true,
         'new_with_braces' => true,
         'no_alias_functions' => true,
-        'no_alternative_syntax' => false,
+        'no_alternative_syntax' => true,
         'no_blank_lines_after_class_opening' => true,
         'no_blank_lines_after_phpdoc' => true,
         'no_blank_lines_before_namespace' => false,
