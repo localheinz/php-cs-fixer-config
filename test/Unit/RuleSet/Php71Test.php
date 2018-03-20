@@ -66,7 +66,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         'concat_space' => [
             'spacing' => 'one',
         ],
-        'date_time_immutable' => false,
+        'date_time_immutable' => true,
         'declare_equal_normalize' => true,
         'declare_strict_types' => true,
         'dir_constant' => true,
