@@ -249,7 +249,7 @@ final class Php71 extends AbstractRuleSet
         'static_lambda' => false,
         'strict_comparison' => true,
         'strict_param' => true,
-        'string_line_ending' => false,
+        'string_line_ending' => true,
         'ternary_operator_spaces' => true,
         'ternary_to_null_coalescing' => true,
         'trailing_comma_in_multiline_array' => true,
