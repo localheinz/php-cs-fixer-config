@@ -61,7 +61,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'class_keyword_remove' => false,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
-        'comment_to_phpdoc' => false,
+        'comment_to_phpdoc' => true,
         'compact_nullable_typehint' => false,
         'concat_space' => [
             'spacing' => 'one',
