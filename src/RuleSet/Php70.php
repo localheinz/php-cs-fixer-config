@@ -196,7 +196,7 @@ final class Php70 extends AbstractRuleSet
             'use_class_const' => true,
         ],
         'php_unit_ordered_covers' => true,
-        'php_unit_set_up_tear_down_visibility' => false,
+        'php_unit_set_up_tear_down_visibility' => true,
         'php_unit_strict' => false,
         'php_unit_test_annotation' => true,
         'php_unit_test_class_requires_covers' => false,
