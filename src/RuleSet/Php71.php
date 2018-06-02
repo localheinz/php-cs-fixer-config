@@ -133,7 +133,7 @@ final class Php71 extends AbstractRuleSet
         'new_with_braces' => true,
         'no_alias_functions' => true,
         'no_alternative_syntax' => true,
-        'no_binary_string' => false,
+        'no_binary_string' => true,
         'no_blank_lines_after_class_opening' => true,
         'no_blank_lines_after_phpdoc' => true,
         'no_blank_lines_before_namespace' => false,
