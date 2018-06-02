@@ -260,7 +260,7 @@ final class Php71 extends AbstractRuleSet
         'return_type_declaration' => true,
         'self_accessor' => true,
         'semicolon_after_instruction' => true,
-        'set_type_to_cast' => false,
+        'set_type_to_cast' => true,
         'short_scalar_cast' => true,
         'silenced_deprecation_error' => false,
         'simplified_null_return' => false,
