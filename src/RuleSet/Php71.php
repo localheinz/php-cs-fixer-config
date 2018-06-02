@@ -289,6 +289,7 @@ final class Php71 extends AbstractRuleSet
         'void_return' => false,
         'whitespace_after_comma_in_array' => true,
         'yoda_style' => [
+            'always_move_variable' => true,
             'equal' => true,
             'identical' => true,
             'less_and_greater' => true,
