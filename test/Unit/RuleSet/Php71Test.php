@@ -113,7 +113,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         ],
         'logical_operators' => true,
         'lowercase_cast' => true,
-        'lowercase_static_reference' => false,
+        'lowercase_static_reference' => true,
         'magic_constant_casing' => true,
         'mb_str_functions' => true,
         'method_argument_space' => [
