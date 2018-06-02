@@ -106,7 +106,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'is_null' => true,
         'linebreak_after_opening_tag' => true,
         'list_syntax' => false,
-        'logical_operators' => false,
+        'logical_operators' => true,
         'lowercase_cast' => true,
         'lowercase_static_reference' => false,
         'magic_constant_casing' => true,

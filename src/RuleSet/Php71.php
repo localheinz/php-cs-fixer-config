@@ -108,7 +108,7 @@ final class Php71 extends AbstractRuleSet
         'list_syntax' => [
             'syntax' => 'short',
         ],
-        'logical_operators' => false,
+        'logical_operators' => true,
         'lowercase_cast' => true,
         'lowercase_static_reference' => false,
         'magic_constant_casing' => true,
