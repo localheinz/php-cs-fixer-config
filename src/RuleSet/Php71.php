@@ -256,7 +256,7 @@ final class Php71 extends AbstractRuleSet
         'psr0' => false,
         'psr4' => true,
         'random_api_migration' => true,
-        'return_assignment' => false,
+        'return_assignment' => true,
         'return_type_declaration' => true,
         'self_accessor' => true,
         'semicolon_after_instruction' => true,
