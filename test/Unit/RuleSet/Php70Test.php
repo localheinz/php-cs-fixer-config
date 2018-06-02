@@ -244,7 +244,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         'phpdoc_to_comment' => false,
         'phpdoc_to_return_type' => false,
         'phpdoc_trim' => true,
-        'phpdoc_trim_consecutive_blank_line_separation' => false,
+        'phpdoc_trim_consecutive_blank_line_separation' => true,
         'phpdoc_types' => true,
         'phpdoc_types_order' => [
             'null_adjustment' => 'always_first',
