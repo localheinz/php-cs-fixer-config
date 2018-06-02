@@ -87,7 +87,10 @@ final class Php70Test extends AbstractRuleSetTestCase
             'before_array_assignments_equals' => false,
         ],
         'ereg_to_preg' => true,
-        'error_suppression' => false,
+        'error_suppression' => [
+            'mute_deprecation_error' => true,
+            'noise_remaining_usages' => true,
+        ],
         'escape_implicit_backslashes' => true,
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
