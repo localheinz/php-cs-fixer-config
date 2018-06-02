@@ -197,7 +197,13 @@ final class Php56Test extends AbstractRuleSetTestCase
             'target' => 'newest',
         ],
         'php_unit_fqcn_annotation' => true,
-        'php_unit_internal_class' => false,
+        'php_unit_internal_class' => [
+            'types' => [
+                'abstract',
+                'final',
+                'normal',
+            ],
+        ],
         'php_unit_mock' => true,
         'php_unit_namespaced' => [
             'target' => '5.7',
