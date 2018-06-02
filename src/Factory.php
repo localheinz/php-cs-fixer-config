@@ -27,10 +27,10 @@ final class Factory
      */
     public static function fromRuleSet(RuleSet $ruleSet, array $overrideRules = [])
     {
-        if (PHP_VERSION_ID < $ruleSet->targetPhpVersion()) {
+        if (\PHP_VERSION_ID < $ruleSet->targetPhpVersion()) {
             throw new \RuntimeException(\sprintf(
                 'Current PHP version "%s is less than targeted PHP version "%s".',
-                PHP_VERSION_ID,
+                \PHP_VERSION_ID,
                 $ruleSet->targetPhpVersion()
             ));
         }
