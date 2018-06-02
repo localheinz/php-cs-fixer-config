@@ -178,7 +178,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         'no_unneeded_curly_braces' => true,
         'no_unneeded_final_method' => true,
         'no_unreachable_default_argument_value' => true,
-        'no_unset_on_property' => false,
+        'no_unset_on_property' => true,
         'no_unused_imports' => true,
         'no_useless_else' => true,
         'no_useless_return' => true,
