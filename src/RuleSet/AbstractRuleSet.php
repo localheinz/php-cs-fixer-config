@@ -59,7 +59,7 @@ abstract class AbstractRuleSet implements RuleSet
         }
 
         $this->rules['header_comment'] = [
-            'commentType' => 'PHPDoc',
+            'comment_type' => 'PHPDoc',
             'header' => $header,
             'location' => 'after_declare_strict',
             'separate' => 'both',

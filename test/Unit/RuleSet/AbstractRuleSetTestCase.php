@@ -179,7 +179,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         $this->assertArrayHasKey('header_comment', $rules);
 
         $expected = [
-            'commentType' => 'PHPDoc',
+            'comment_type' => 'PHPDoc',
             'header' => $header,
             'location' => 'after_declare_strict',
             'separate' => 'both',
