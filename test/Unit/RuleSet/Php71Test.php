@@ -11,6 +11,9 @@
 
 namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
 
+/**
+ * @internal
+ */
 final class Php71Test extends AbstractRuleSetTestCase
 {
     protected $name = 'localheinz (PHP 7.1)';
@@ -199,7 +202,13 @@ final class Php71Test extends AbstractRuleSetTestCase
             'target' => 'newest',
         ],
         'php_unit_fqcn_annotation' => true,
-        'php_unit_internal_class' => false,
+        'php_unit_internal_class' => [
+            'types' => [
+                'abstract',
+                'final',
+                'normal',
+            ],
+        ],
         'php_unit_mock' => true,
         'php_unit_namespaced' => [
             'target' => 'newest',
