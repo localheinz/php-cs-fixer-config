@@ -26,7 +26,7 @@ final class FactoryTest extends Framework\TestCase
 
     public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion()
     {
-        $targetPhpVersion = PHP_VERSION_ID + 1;
+        $targetPhpVersion = \PHP_VERSION_ID + 1;
 
         $ruleSet = $this->prophesize(Config\RuleSet::class);
 
@@ -46,7 +46,7 @@ final class FactoryTest extends Framework\TestCase
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage(\sprintf(
             'Current PHP version "%s is less than targeted PHP version "%s".',
-            PHP_VERSION_ID,
+            \PHP_VERSION_ID,
             $targetPhpVersion
         ));
 
@@ -100,8 +100,8 @@ final class FactoryTest extends Framework\TestCase
     public function providerTargetPhpVersion()
     {
         $values = [
-            PHP_VERSION_ID - 1,
-            PHP_VERSION_ID,
+            \PHP_VERSION_ID - 1,
+            \PHP_VERSION_ID,
         ];
 
         foreach ($values as $value) {
@@ -141,7 +141,7 @@ final class FactoryTest extends Framework\TestCase
         $ruleSet
             ->targetPhpVersion()
             ->shouldBeCalled()
-            ->willReturn(PHP_VERSION_ID);
+            ->willReturn(\PHP_VERSION_ID);
 
         $config = Config\Factory::fromRuleSet(
             $ruleSet->reveal(),

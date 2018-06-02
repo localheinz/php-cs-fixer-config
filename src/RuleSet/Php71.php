@@ -127,7 +127,7 @@ final class Php71 extends AbstractRuleSet
         'multiline_whitespace_before_semicolons' => [
             'strategy' => 'no_multi_line',
         ],
-        'native_constant_invocation' => false,
+        'native_constant_invocation' => true,
         'native_function_casing' => true,
         'native_function_invocation' => true,
         'new_with_braces' => true,
