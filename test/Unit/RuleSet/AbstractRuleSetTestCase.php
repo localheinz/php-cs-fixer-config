@@ -17,6 +17,9 @@ use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 abstract class AbstractRuleSetTestCase extends Framework\TestCase
 {
     /**

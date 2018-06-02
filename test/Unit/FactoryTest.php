@@ -15,6 +15,9 @@ use Localheinz\PhpCsFixer\Config;
 use PhpCsFixer\ConfigInterface;
 use PHPUnit\Framework;
 
+/**
+ * @internal
+ */
 final class FactoryTest extends Framework\TestCase
 {
     public function testIsFinal()

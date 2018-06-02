@@ -11,6 +11,9 @@
 
 namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
 
+/**
+ * @internal
+ */
 final class Php56Test extends AbstractRuleSetTestCase
 {
     protected $name = 'localheinz (PHP 5.6)';
