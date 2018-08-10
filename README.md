@@ -161,7 +161,8 @@ Create a `Makefile` with a `cs` target:
 ```Makefile
 .PHONY: composer cs
 
-composer:
+composer: composer.json composer.lock
+	composer self-update
 	composer validate
 	composer install
 
@@ -169,9 +170,7 @@ cs: composer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
 ```
 
-## Fixing issues
-
-Run
+Then run
 
 ```
 $ make cs
