@@ -108,7 +108,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         'hash_to_slash_comment' => true,
         'header_comment' => false,
         'heredoc_to_nowdoc' => true,
-        'implode_call' => false,
+        'implode_call' => true,
         'include' => true,
         'increment_style' => [
             'style' => 'pre',
