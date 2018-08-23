@@ -99,7 +99,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
         'final_internal_class' => true,
-        'fopen_flag_order' => false,
+        'fopen_flag_order' => true,
         'fopen_flags' => false,
         'fully_qualified_strict_types' => true,
         'function_to_constant' => true,
