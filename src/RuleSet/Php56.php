@@ -117,7 +117,7 @@ final class Php56 extends AbstractRuleSet
         'lowercase_cast' => true,
         'lowercase_static_reference' => true,
         'magic_constant_casing' => true,
-        'magic_method_casing' => false,
+        'magic_method_casing' => true,
         'mb_str_functions' => true,
         'method_argument_space' => [
             'ensure_fully_multiline' => true,
