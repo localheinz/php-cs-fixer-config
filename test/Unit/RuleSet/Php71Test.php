@@ -64,7 +64,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         'class_keyword_remove' => false,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
-        'combine_nested_dirname' => false,
+        'combine_nested_dirname' => true,
         'comment_to_phpdoc' => true,
         'compact_nullable_typehint' => true,
         'concat_space' => [
