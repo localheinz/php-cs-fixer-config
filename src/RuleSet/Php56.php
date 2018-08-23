@@ -209,7 +209,7 @@ final class Php56 extends AbstractRuleSet
                 'normal',
             ],
         ],
-        'php_unit_method_casing' => false,
+        'php_unit_method_casing' => true,
         'php_unit_mock' => true,
         'php_unit_namespaced' => [
             'target' => '5.7',
