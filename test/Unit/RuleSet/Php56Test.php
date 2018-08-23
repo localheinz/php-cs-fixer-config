@@ -64,6 +64,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'class_keyword_remove' => false,
         'combine_consecutive_issets' => true,
         'combine_consecutive_unsets' => true,
+        'combine_nested_dirname' => false,
         'comment_to_phpdoc' => true,
         'compact_nullable_typehint' => false,
         'concat_space' => [
@@ -98,6 +99,8 @@ final class Php56Test extends AbstractRuleSetTestCase
         'explicit_indirect_variable' => false,
         'explicit_string_variable' => true,
         'final_internal_class' => true,
+        'fopen_flag_order' => false,
+        'fopen_flags' => false,
         'fully_qualified_strict_types' => false,
         'function_to_constant' => true,
         'function_typehint_space' => true,
@@ -105,6 +108,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'hash_to_slash_comment' => true,
         'header_comment' => false,
         'heredoc_to_nowdoc' => true,
+        'implode_call' => false,
         'include' => true,
         'increment_style' => [
             'style' => 'pre',
@@ -116,6 +120,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'lowercase_cast' => true,
         'lowercase_static_reference' => true,
         'magic_constant_casing' => true,
+        'magic_method_casing' => false,
         'mb_str_functions' => true,
         'method_argument_space' => [
             'ensure_fully_multiline' => true,
@@ -207,6 +212,7 @@ final class Php56Test extends AbstractRuleSetTestCase
                 'normal',
             ],
         ],
+        'php_unit_method_casing' => false,
         'php_unit_mock' => true,
         'php_unit_namespaced' => [
             'target' => '5.7',
