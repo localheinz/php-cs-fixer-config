@@ -96,7 +96,7 @@ final class Php56 extends AbstractRuleSet
         'explicit_indirect_variable' => false,
         'explicit_string_variable' => true,
         'final_internal_class' => true,
-        'fopen_flag_order' => false,
+        'fopen_flag_order' => true,
         'fopen_flags' => false,
         'fully_qualified_strict_types' => false,
         'function_to_constant' => true,
