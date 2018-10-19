@@ -1,6 +1,6 @@
 # php-cs-fixer-config
 
-[![Build Status](https://travis-ci.org/localheinz/php-cs-fixer-config.svg?branch=master)](https://travis-ci.org/localheinz/php-cs-fixer-config)
+[![Build Status](https://travis-ci.com/localheinz/php-cs-fixer-config.svg?branch=master)](https://travis-ci.com/localheinz/php-cs-fixer-config)
 [![codecov](https://codecov.io/gh/localheinz/php-cs-fixer-config/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/php-cs-fixer-config)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/php-cs-fixer-config/v/stable)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
 [![Total Downloads](https://poser.pugx.org/localheinz/php-cs-fixer-config/downloads)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
