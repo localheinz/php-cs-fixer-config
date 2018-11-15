@@ -265,7 +265,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             $fixerFactory = FixerFactory::create();
             $fixerFactory->registerBuiltInFixers();
 
-            $builtInFixers = \array_map(function (Fixer\FixerInterface $fixer) {
+            $builtInFixers = \array_map(static function (Fixer\FixerInterface $fixer) {
                 return $fixer->getName();
             }, $fixerFactory->getFixers());
         }
@@ -283,7 +283,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
          *
          * @see https://github.com/FriendsOfPHP/PHP-CS-Fixer/pull/2361
          */
-        $rules = \array_map(function () {
+        $rules = \array_map(static function () {
             return true;
         }, $this->createRuleSet()->rules());
 
