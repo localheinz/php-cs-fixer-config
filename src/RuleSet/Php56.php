@@ -274,7 +274,7 @@ final class Php56 extends AbstractRuleSet
         'space_after_semicolon' => true,
         'standardize_increment' => true,
         'standardize_not_equals' => true,
-        'static_lambda' => false,
+        'static_lambda' => true,
         'strict_comparison' => true,
         'strict_param' => true,
         'string_line_ending' => true,
