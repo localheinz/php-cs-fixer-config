@@ -113,46 +113,11 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     {
         $values = [
             'array' => [],
-            'boolean-true' => true,
             'boolean-false' => false,
+            'boolean-true' => true,
             'float' => 3.14,
             'integer' => 90001,
             'object' => new \stdClass(),
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
-    }
-
-    /**
-     * @dataProvider providerBlankHeader
-     *
-     * @param string $header
-     */
-    final public function testConstructorRejectsBlankHeader($header)
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'If specified, header needs to be a non-blank string. Got "%s" instead.',
-            $header
-        ));
-
-        $this->createRuleSet($header);
-    }
-
-    /**
-     * @return \Generator
-     */
-    final public function providerBlankHeader()
-    {
-        $values = [
-            'string-empty' => '',
-            'string-with-line-feed-only' => "\n",
-            'string-with-spaces-only' => ' ',
-            'string-with-tab-only' => "\t",
         ];
 
         foreach ($values as $key => $value) {
@@ -170,22 +135,45 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         $this->assertFalse($rules['header_comment']);
     }
 
-    final public function testHeaderCommentFixerIsEnabledIfHeaderIsProvided()
+    /**
+     * @dataProvider providerValidHeader
+     *
+     * @param string $header
+     */
+    final public function testHeaderCommentFixerIsEnabledIfHeaderIsProvided($header)
     {
-        $header = 'foo';
-
         $rules = $this->createRuleSet($header)->rules();
 
         $this->assertArrayHasKey('header_comment', $rules);
 
         $expected = [
             'comment_type' => 'PHPDoc',
-            'header' => $header,
+            'header' => \trim($header),
             'location' => 'after_declare_strict',
             'separate' => 'both',
         ];
 
         $this->assertSame($expected, $rules['header_comment']);
+    }
+
+    /**
+     * @return \Generator
+     */
+    final public function providerValidHeader()
+    {
+        $values = [
+            'string-empty' => '',
+            'string-not-empty' => 'foo',
+            'string-with-line-feed-only' => "\n",
+            'string-with-spaces-only' => ' ',
+            'string-with-tab-only' => "\t",
+        ];
+
+        foreach ($values as $key => $value) {
+            yield $key => [
+                $value,
+            ];
+        }
     }
 
     /**
