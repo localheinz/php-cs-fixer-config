@@ -51,16 +51,9 @@ abstract class AbstractRuleSet implements RuleSet
             ));
         }
 
-        if ('' === \trim($header)) {
-            throw new \InvalidArgumentException(\sprintf(
-                'If specified, header needs to be a non-blank string. Got "%s" instead.',
-                $header
-            ));
-        }
-
         $this->rules['header_comment'] = [
             'comment_type' => 'PHPDoc',
-            'header' => $header,
+            'header' => \trim($header),
             'location' => 'after_declare_strict',
             'separate' => 'both',
         ];
