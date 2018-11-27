@@ -41,23 +41,23 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     {
         $reflection = new \ReflectionClass($this->className());
 
-        $this->assertTrue($reflection->isFinal());
+        self::assertTrue($reflection->isFinal());
     }
 
     final public function testImplementsRuleSetInterface()
     {
         $reflection = new \ReflectionClass($this->className());
 
-        $this->assertTrue($reflection->implementsInterface(Config\RuleSet::class));
+        self::assertTrue($reflection->implementsInterface(Config\RuleSet::class));
     }
 
     final public function testDefaults()
     {
         $ruleSet = $this->createRuleSet();
 
-        $this->assertSame($this->name, $ruleSet->name());
-        $this->assertEquals($this->rules, $ruleSet->rules());
-        $this->assertEquals($this->targetPhpVersion, $ruleSet->targetPhpVersion());
+        self::assertSame($this->name, $ruleSet->name());
+        self::assertEquals($this->rules, $ruleSet->rules());
+        self::assertEquals($this->targetPhpVersion, $ruleSet->targetPhpVersion());
     }
 
     final public function testAllConfiguredRulesAreBuiltIn()
@@ -69,7 +69,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         \sort($fixersNotBuiltIn);
 
-        $this->assertEmpty($fixersNotBuiltIn, \sprintf(
+        self::assertEmpty($fixersNotBuiltIn, \sprintf(
             'Failed to assert that fixers for the rules "%s" are built in',
             \implode('", "', $fixersNotBuiltIn)
         ));
@@ -84,7 +84,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         \sort($fixersWithoutConfiguration);
 
-        $this->assertEmpty($fixersWithoutConfiguration, \sprintf(
+        self::assertEmpty($fixersWithoutConfiguration, \sprintf(
             'Failed to assert that built-in fixers for the rules "%s" are configured',
             \implode('", "', $fixersWithoutConfiguration)
         ));
@@ -131,8 +131,8 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     {
         $rules = $this->createRuleSet()->rules();
 
-        $this->assertArrayHasKey('header_comment', $rules);
-        $this->assertFalse($rules['header_comment']);
+        self::assertArrayHasKey('header_comment', $rules);
+        self::assertFalse($rules['header_comment']);
     }
 
     /**
@@ -144,7 +144,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     {
         $rules = $this->createRuleSet($header)->rules();
 
-        $this->assertArrayHasKey('header_comment', $rules);
+        self::assertArrayHasKey('header_comment', $rules);
 
         $expected = [
             'comment_type' => 'PHPDoc',
@@ -153,7 +153,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
             'separate' => 'both',
         ];
 
-        $this->assertSame($expected, $rules['header_comment']);
+        self::assertSame($expected, $rules['header_comment']);
     }
 
     /**
@@ -188,7 +188,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
 
         \sort($sorted);
 
-        $this->assertEquals($sorted, $ruleNames, \sprintf(
+        self::assertEquals($sorted, $ruleNames, \sprintf(
             'Failed to assert that the rules are sorted by name in %s',
             $source
         ));
