@@ -24,7 +24,7 @@ final class FactoryTest extends Framework\TestCase
     {
         $reflection = new \ReflectionClass(Config\Factory::class);
 
-        $this->assertTrue($reflection->isFinal());
+        self::assertTrue($reflection->isFinal());
     }
 
     public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion()
@@ -91,10 +91,10 @@ final class FactoryTest extends Framework\TestCase
 
         $config = Config\Factory::fromRuleSet($ruleSet->reveal());
 
-        $this->assertInstanceOf(ConfigInterface::class, $config);
-        $this->assertTrue($config->getUsingCache());
-        $this->assertTrue($config->getRiskyAllowed());
-        $this->assertSame($rules, $config->getRules());
+        self::assertInstanceOf(ConfigInterface::class, $config);
+        self::assertTrue($config->getUsingCache());
+        self::assertTrue($config->getRiskyAllowed());
+        self::assertSame($rules, $config->getRules());
     }
 
     /**
@@ -151,9 +151,9 @@ final class FactoryTest extends Framework\TestCase
             $overrideRules
         );
 
-        $this->assertInstanceOf(ConfigInterface::class, $config);
-        $this->assertTrue($config->getUsingCache());
-        $this->assertTrue($config->getRiskyAllowed());
-        $this->assertSame(\array_merge($rules, $overrideRules), $config->getRules());
+        self::assertInstanceOf(ConfigInterface::class, $config);
+        self::assertTrue($config->getUsingCache());
+        self::assertTrue($config->getRiskyAllowed());
+        self::assertSame(\array_merge($rules, $overrideRules), $config->getRules());
     }
 }
