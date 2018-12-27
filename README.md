@@ -37,9 +37,9 @@ $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56());
 
 $config->getFinder()->in(__DIR__);
 
-$cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
+$cacheDir = getenv('TRAVIS') ? getenv('HOME') : __DIR__;
 
-$config->setCacheFile($cacheDir . '/.php_cs.cache');
+$config->setCacheFile($cacheDir . '/.build/php_cs.cache');
 
 return $config;
 ```
@@ -53,10 +53,8 @@ return $config;
 
 use Localheinz\PhpCsFixer\Config;
 
-$year = \date('Y');
-
 $header = <<<EOF
-Copyright (c) 2017-$year Andreas Möller
+Copyright (c) 2017 Andreas Möller
 
 For the full copyright and license information, please view
 the LICENSE file that was distributed with this source code.
@@ -68,9 +66,9 @@ $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56($header));
 
 $config->getFinder()->in(__DIR__);
 
-$cacheDir = \getenv('TRAVIS') ? \getenv('HOME') . '/.php-cs-fixer' : __DIR__;
+$cacheDir = \getenv('TRAVIS') ? \getenv('HOME') : __DIR__;
 
-$config->setCacheFile($cacheDir . '/.php_cs.cache');
+$config->setCacheFile($cacheDir . '/.build/php_cs.cache');
 
 return $config;
 ```
@@ -82,7 +80,7 @@ file headers will be added to PHP files, for example:
 <?php
 
 /**
- * Copyright (c) 2017-2018 Andreas Möller
+ * Copyright (c) 2017 Andreas Möller
  *
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
@@ -107,9 +105,9 @@ $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56(), [
 
 $config->getFinder()->in(__DIR__);
 
-$cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
+$cacheDir = getenv('TRAVIS') ? getenv('HOME') : __DIR__;
 
-$config->setCacheFile($cacheDir . '/.php_cs.cache');
+$config->setCacheFile($cacheDir . '/.build/php_cs.cache');
 
 return $config;
 ```
@@ -130,14 +128,17 @@ Update your `.travis.yml` to cache the directory containing the `php_cs.cache` f
 ```yml
 cache:
   directories:
-    - $HOME/.php-cs-fixer
+    - $HOME/.build/php-cs-fixer
 ```
 
 Then run `php-cs-fixer` in the `script` section:
 
 ```yml
+before_script:
+  - mkdir -p $HOME/.build/php-cs-fixer
+
 script:
-  - vendor/bin/php-cs-fixer fix --config=.php_cs --verbose --diff --dry-run
+  - vendor/bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose
 ```
 
 If you only want to run `php-cs-fixer` on one PHP version, update your build matrix and use a condition:
@@ -167,6 +168,7 @@ composer: composer.json composer.lock
 	composer install
 
 cs: composer
+	mkdir -p .build/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
 ```
 

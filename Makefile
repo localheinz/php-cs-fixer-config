@@ -6,6 +6,7 @@ coverage: vendor
 	vendor/bin/phpunit --configuration=test/Unit/phpunit.xml --coverage-text
 
 cs: vendor
+	mkdir -p .build/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
 
 test: vendor
