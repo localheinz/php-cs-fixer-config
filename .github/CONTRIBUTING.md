@@ -36,4 +36,4 @@ Run
 $ make
 ```
 
-to run both coding standards check and tests!
+to enforce coding standards and run tests!
