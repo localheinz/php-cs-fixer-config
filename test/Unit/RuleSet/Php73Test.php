@@ -264,7 +264,7 @@ final class Php73Test extends AbstractRuleSetTestCase
             'null_adjustment' => 'always_first',
             'sort_algorithm' => 'alpha',
         ],
-        'phpdoc_var_annotation_correct_order' => false,
+        'phpdoc_var_annotation_correct_order' => true,
         'phpdoc_var_without_name' => true,
         'pow_to_exponentiation' => true,
         'pre_increment' => false,
