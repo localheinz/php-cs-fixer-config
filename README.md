@@ -105,9 +105,7 @@ $config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56(), [
 
 $config->getFinder()->in(__DIR__);
 
-$cacheDir = getenv('TRAVIS') ? getenv('HOME') : __DIR__;
-
-$config->setCacheFile($cacheDir . '/.build/php_cs.cache');
+$config->setCacheFile(__DIR__ . '/.build/php_cs.cache');
 
 return $config;
 ```
