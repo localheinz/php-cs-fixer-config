@@ -33,7 +33,7 @@ Create a configuration file `.php_cs` in the root of your project:
 
 use Localheinz\PhpCsFixer\Config;
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56());
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71());
 
 $config->getFinder()->in(__DIR__);
 
@@ -62,7 +62,7 @@ the LICENSE file that was distributed with this source code.
 @see https://github.com/localheinz/php-cs-fixer-config
 EOF;
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56($header));
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($header));
 
 $config->getFinder()->in(__DIR__);
 
@@ -98,7 +98,7 @@ file headers will be added to PHP files, for example:
 
 use Localheinz\PhpCsFixer\Config;
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php56(), [
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71(), [
     'mb_str_functions' => false,
     'strict_comparison' => false,
 ]);
@@ -144,9 +144,9 @@ If you only want to run `php-cs-fixer` on one PHP version, update your build mat
 ```yml
 matrix:
   include:
-    - php: 5.6
+    - php: 7.1
       env: WITH_CS=true
-    - php: 5.6
+    - php: 7.1
       env: WITH_COVERAGE=true
 
 script:
