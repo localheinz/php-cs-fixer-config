@@ -162,7 +162,6 @@ Create a `Makefile` with a `cs` target:
 .PHONY: composer cs
 
 composer: composer.json composer.lock
-	composer self-update
 	composer validate
 	composer install
 
