@@ -13,6 +13,8 @@ namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\PhpCsFixer\Config\RuleSet\Php56
  */
 final class Php56Test extends AbstractRuleSetTestCase
 {
