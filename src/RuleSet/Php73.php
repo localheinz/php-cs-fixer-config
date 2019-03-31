@@ -233,7 +233,7 @@ final class Php73 extends AbstractRuleSet
         'php_unit_test_case_static_method_calls' => [
             'call_type' => 'self',
         ],
-        'php_unit_test_class_requires_covers' => false,
+        'php_unit_test_class_requires_covers' => true,
         'phpdoc_add_missing_param_annotation' => [
             'only_untyped' => false,
         ],
