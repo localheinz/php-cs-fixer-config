@@ -17,6 +17,8 @@ use PHPUnit\Framework;
 
 /**
  * @internal
+ *
+ * @covers \Localheinz\PhpCsFixer\Config\Factory
  */
 final class FactoryTest extends Framework\TestCase
 {
