@@ -104,7 +104,7 @@ final class Php71Test extends AbstractRuleSetTestCase
         'escape_implicit_backslashes' => true,
         'explicit_indirect_variable' => true,
         'explicit_string_variable' => true,
-        'final_class' => false,
+        'final_class' => true,
         'final_internal_class' => true,
         'fopen_flag_order' => true,
         'fopen_flags' => true,
