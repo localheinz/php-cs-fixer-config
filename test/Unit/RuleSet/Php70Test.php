@@ -227,7 +227,7 @@ final class Php70Test extends AbstractRuleSetTestCase
         ],
         'php_unit_method_casing' => true,
         'php_unit_mock' => true,
-        'php_unit_mock_short_will_return' => false,
+        'php_unit_mock_short_will_return' => true,
         'php_unit_namespaced' => [
             'target' => 'newest',
         ],
