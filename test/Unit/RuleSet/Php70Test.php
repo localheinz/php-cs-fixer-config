@@ -14,6 +14,7 @@ namespace Localheinz\PhpCsFixer\Config\Test\Unit\RuleSet;
 /**
  * @internal
  *
+ * @covers \Localheinz\PhpCsFixer\Config\RuleSet\AbstractRuleSet
  * @covers \Localheinz\PhpCsFixer\Config\RuleSet\Php70
  */
 final class Php70Test extends AbstractRuleSetTestCase
