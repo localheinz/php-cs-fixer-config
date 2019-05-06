@@ -214,7 +214,7 @@ final class Php73Test extends AbstractRuleSetTestCase
         'ordered_interfaces' => false,
         'php_unit_construct' => true,
         'php_unit_dedicate_assert' => true,
-        'php_unit_dedicate_assert_internal_type' => false,
+        'php_unit_dedicate_assert_internal_type' => true,
         'php_unit_expectation' => [
             'target' => 'newest',
         ],
