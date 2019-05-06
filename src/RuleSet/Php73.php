@@ -209,7 +209,7 @@ final class Php73 extends AbstractRuleSet
         'ordered_interfaces' => true,
         'php_unit_construct' => true,
         'php_unit_dedicate_assert' => true,
-        'php_unit_dedicate_assert_internal_type' => false,
+        'php_unit_dedicate_assert_internal_type' => true,
         'php_unit_expectation' => [
             'target' => 'newest',
         ],
