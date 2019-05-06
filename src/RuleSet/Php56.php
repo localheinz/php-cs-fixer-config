@@ -204,7 +204,7 @@ final class Php56 extends AbstractRuleSet
         'object_operator_without_whitespace' => true,
         'ordered_class_elements' => true,
         'ordered_imports' => true,
-        'ordered_interfaces' => false,
+        'ordered_interfaces' => true,
         'php_unit_construct' => true,
         'php_unit_dedicate_assert' => true,
         'php_unit_dedicate_assert_internal_type' => false,
