@@ -291,7 +291,7 @@ final class Php56Test extends AbstractRuleSetTestCase
         'single_blank_line_before_namespace' => true,
         'single_line_comment_style' => false,
         'single_quote' => true,
-        'single_trait_insert_per_statement' => false,
+        'single_trait_insert_per_statement' => true,
         'space_after_semicolon' => true,
         'standardize_increment' => true,
         'standardize_not_equals' => true,
