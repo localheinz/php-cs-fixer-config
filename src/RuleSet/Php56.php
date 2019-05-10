@@ -280,7 +280,7 @@ final class Php56 extends AbstractRuleSet
         'set_type_to_cast' => true,
         'short_scalar_cast' => true,
         'silenced_deprecation_error' => false,
-        'simple_to_complex_string_variable' => false,
+        'simple_to_complex_string_variable' => true,
         'simplified_null_return' => true,
         'single_blank_line_before_namespace' => true,
         'single_line_comment_style' => false,
