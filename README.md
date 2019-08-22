@@ -22,7 +22,6 @@ $ composer require --dev localheinz/php-cs-fixer-config
 
 Pick one of the rule sets:
 
-* `Localheinz\PhpCsFixer\RuleSet\Php56`
 * `Localheinz\PhpCsFixer\RuleSet\Php70`
 * `Localheinz\PhpCsFixer\RuleSet\Php71`
 * `Localheinz\PhpCsFixer\RuleSet\Php73`
