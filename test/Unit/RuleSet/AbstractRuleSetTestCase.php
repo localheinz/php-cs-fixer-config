@@ -39,21 +39,21 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
      */
     protected $targetPhpVersion;
 
-    final public function testIsFinal()
+    final public function testIsFinal(): void
     {
         $reflection = new \ReflectionClass($this->className());
 
         self::assertTrue($reflection->isFinal());
     }
 
-    final public function testImplementsRuleSetInterface()
+    final public function testImplementsRuleSetInterface(): void
     {
         $reflection = new \ReflectionClass($this->className());
 
         self::assertTrue($reflection->implementsInterface(Config\RuleSet::class));
     }
 
-    final public function testDefaults()
+    final public function testDefaults(): void
     {
         $ruleSet = $this->createRuleSet();
 
@@ -62,7 +62,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         self::assertEquals($this->targetPhpVersion, $ruleSet->targetPhpVersion());
     }
 
-    final public function testAllConfiguredRulesAreBuiltIn()
+    final public function testAllConfiguredRulesAreBuiltIn(): void
     {
         $fixersNotBuiltIn = \array_diff(
             $this->configuredFixers(),
@@ -77,7 +77,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         ));
     }
 
-    final public function testAllBuiltInRulesAreConfigured()
+    final public function testAllBuiltInRulesAreConfigured(): void
     {
         $fixersWithoutConfiguration = \array_diff(
             $this->builtInFixers(),
@@ -97,7 +97,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
      *
      * @param mixed $header
      */
-    final public function testConstructorRejectsInvalidHeader($header)
+    final public function testConstructorRejectsInvalidHeader($header): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage(\sprintf(
@@ -129,7 +129,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         }
     }
 
-    final public function testHeaderCommentFixerIsDisabledByDefault()
+    final public function testHeaderCommentFixerIsDisabledByDefault(): void
     {
         $rules = $this->createRuleSet()->rules();
 
@@ -142,7 +142,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
      *
      * @param string $header
      */
-    final public function testHeaderCommentFixerIsEnabledIfHeaderIsProvided($header)
+    final public function testHeaderCommentFixerIsEnabledIfHeaderIsProvided($header): void
     {
         $rules = $this->createRuleSet($header)->rules();
 
@@ -184,7 +184,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
      * @param array  $ruleNames
      * @param string $source
      */
-    final public function testRulesAreSortedByName($source, $ruleNames)
+    final public function testRulesAreSortedByName($source, $ruleNames): void
     {
         $sorted = $ruleNames;
 
