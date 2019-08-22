@@ -24,14 +24,14 @@ use PHPUnit\Framework;
  */
 final class FactoryTest extends Framework\TestCase
 {
-    public function testIsFinal()
+    public function testIsFinal(): void
     {
         $reflection = new \ReflectionClass(Config\Factory::class);
 
         self::assertTrue($reflection->isFinal());
     }
 
-    public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion()
+    public function testFromRuleSetThrowsRuntimeExceptionIfCurrentPhpVersionIsLessThanTargetPhpVersion(): void
     {
         $targetPhpVersion = \PHP_VERSION_ID + 1;
 
@@ -65,7 +65,7 @@ final class FactoryTest extends Framework\TestCase
      *
      * @param $targetPhpVersion
      */
-    public function testFromRuleSetCreatesConfig($targetPhpVersion)
+    public function testFromRuleSetCreatesConfig($targetPhpVersion): void
     {
         $name = 'foobarbaz';
 
@@ -118,7 +118,7 @@ final class FactoryTest extends Framework\TestCase
         }
     }
 
-    public function testFromRuleSetCreatesConfigWithOverrideRules()
+    public function testFromRuleSetCreatesConfigWithOverrideRules(): void
     {
         $name = 'foobarbaz';
 

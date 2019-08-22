@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": "^7.0",
+    "php": "^7.1",
     "friendsofphp/php-cs-fixer": "~2.15.1"
   },
   "require-dev": {
