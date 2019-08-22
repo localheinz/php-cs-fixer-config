@@ -15,7 +15,7 @@
     "friendsofphp/php-cs-fixer": "~2.15.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.7.25"
+    "phpunit/phpunit": "^5.7.27"
   },
   "config": {
     "preferred-install": "dist",
