@@ -1,6 +1,6 @@
 # php-cs-fixer-config
 
-[![CI Status](https://github.com/localheinz/php-cs-fixer-config/workflows/CI/badge.svg)](https://github.com/localheinz/php-cs-fixer-config/actions)
+[![CI Status](https://github.com/localheinz/php-cs-fixer-config/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/php-cs-fixer-config/actions)
 [![codecov](https://codecov.io/gh/localheinz/php-cs-fixer-config/branch/master/graph/badge.svg)](https://codecov.io/gh/localheinz/php-cs-fixer-config)
 [![Latest Stable Version](https://poser.pugx.org/localheinz/php-cs-fixer-config/v/stable)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
 [![Total Downloads](https://poser.pugx.org/localheinz/php-cs-fixer-config/downloads)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
