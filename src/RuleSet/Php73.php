@@ -134,7 +134,7 @@ final class Php73 extends AbstractRuleSet
             'keep_multiple_spaces_after_comma' => false,
         ],
         'method_chaining_indentation' => true,
-        'method_separation' => true,
+        'method_separation' => false,
         'modernize_types_casting' => true,
         'multiline_comment_opening_closing' => true,
         'multiline_whitespace_before_semicolons' => [
