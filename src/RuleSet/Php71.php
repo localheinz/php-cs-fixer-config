@@ -254,7 +254,11 @@ final class Php71 extends AbstractRuleSet
         'phpdoc_annotation_without_dot' => true,
         'phpdoc_indent' => true,
         'phpdoc_inline_tag' => true,
-        'phpdoc_line_span' => false,
+        'phpdoc_line_span' => [
+            'const' => 'multi',
+            'method' => 'multi',
+            'property' => 'multi',
+        ],
         'phpdoc_no_access' => true,
         'phpdoc_no_alias_tag' => true,
         'phpdoc_no_empty_return' => true,
