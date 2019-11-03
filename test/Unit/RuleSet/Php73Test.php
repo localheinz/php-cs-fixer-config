@@ -110,7 +110,7 @@ final class Php73Test extends AbstractRuleSetTestCase
         'final_class' => true,
         'final_internal_class' => true,
         'final_public_method_for_abstract_class' => true,
-        'final_static_access' => false,
+        'final_static_access' => true,
         'fopen_flag_order' => true,
         'fopen_flags' => true,
         'fully_qualified_strict_types' => true,
