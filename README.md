@@ -5,8 +5,7 @@
 [![Latest Stable Version](https://poser.pugx.org/localheinz/php-cs-fixer-config/v/stable)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
 [![Total Downloads](https://poser.pugx.org/localheinz/php-cs-fixer-config/downloads)](https://packagist.org/packages/localheinz/php-cs-fixer-config)
 
-As an alternative to [`refinery29/php-cs-fixer-config`](http://github.com/refinery29/php-cs-fixer-config),
-this repository provides a configuration factory and multiple rule sets for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
+Provides a configuration factory and multiple rule sets for [`friendsofphp/php-cs-fixer`](http://github.com/FriendsOfPHP/PHP-CS-Fixer).
 
 ## Installation
 
@@ -185,3 +184,7 @@ Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 ## License
 
 This package is licensed using the MIT License.
+
+## Credits
+
+This project is inspired by [`refinery29/php-cs-fixer-config`](http://github.com/refinery29/php-cs-fixer-config), which I created and maintained from August 7, 2015 until May 29, 2017, while working for Refinery29, Inc.
