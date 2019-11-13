@@ -156,15 +156,16 @@ script:
 Create a `Makefile` with a `cs` target:
 
 ```Makefile
-.PHONY: composer cs
+.PHONY: cs
 
-composer: composer.json composer.lock
+cs: vendor
+	mkdir -p .build/php-cs-fixer
+	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
+
+vendor: composer.json composer.lock
 	composer validate
 	composer install
 
-cs: composer
-	mkdir -p .build/php-cs-fixer
-	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
 ```
 
 Then run
