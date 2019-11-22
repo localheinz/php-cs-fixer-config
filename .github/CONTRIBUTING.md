@@ -11,12 +11,34 @@ We are using [`friendsofphp/php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-C
 Run
 
 ```
-$ make cs
+$ make coding-standards
 ```
 
 to automatically fix coding standard violations.
 
-## Extra lazy?
+## Static Code Analysis
+
+We are using [`phpstan/phpstan`](https://github.com/phpstan/phpstan) to statically analyze the code.
+
+Run
+
+```
+$ make static-code-analysis
+```
+
+to run a static code analysis.
+
+We are also using the [baseline feature](https://medium.com/@ondrejmirtes/phpstans-baseline-feature-lets-you-hold-new-code-to-a-higher-standard-e77d815a5dff) of [`phpstan/phpstan`](https://github.com/phpstan/phpstan).
+
+Run
+
+```
+$ make static-code-analysis-baseline
+```
+
+to regenerate the baseline in [`../phpstan-baseline.neon`](../phpstan-baseline.neon).
+
+:exclamation: Ideally, the baseline should shrink over time.
 
 ## Tests
 
@@ -30,13 +52,27 @@ $ make test
 
 to run all the tests.
 
+## Mutation Tests
+
+We are using [`infection/infection`](https://github.com/infection/infection) to ensure a minimum quality of the tests.
+
+Enable `Xdebug` and run
+
+```
+$ make mutation-tests
+```
+
+to run mutation tests.
+
+## Extra lazy?
+
 Run
 
 ```
 $ make
 ```
 
-to enforce coding standards and run tests!
+to enforce coding standards, perform a static code analysis, and run tests!
 
 ## Help
 

@@ -35,22 +35,10 @@ abstract class AbstractRuleSet implements RuleSet
      */
     protected $targetPhpVersion;
 
-    /**
-     * @param string $header
-     *
-     * @throws \InvalidArgumentException
-     */
-    final public function __construct($header = null)
+    final public function __construct(?string $header = null)
     {
         if (null === $header) {
             return;
-        }
-
-        if (!\is_string($header)) {
-            throw new \InvalidArgumentException(\sprintf(
-                'Header needs to be specified as null or a string. Got "%s" instead.',
-                \is_object($header) ? \get_class($header) : \gettype($header)
-            ));
         }
 
         $this->rules['header_comment'] = [
@@ -61,17 +49,17 @@ abstract class AbstractRuleSet implements RuleSet
         ];
     }
 
-    final public function name()
+    final public function name(): string
     {
         return $this->name;
     }
 
-    final public function rules()
+    final public function rules(): array
     {
         return $this->rules;
     }
 
-    final public function targetPhpVersion()
+    final public function targetPhpVersion(): int
     {
         return $this->targetPhpVersion;
     }

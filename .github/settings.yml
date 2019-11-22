@@ -10,16 +10,19 @@ branches:
         required_approving_review_count: 1
       required_status_checks:
         contexts:
-          -  "Coding Standards"
-          -  "Tests (php7.2, lowest)"
-          -  "Tests (php7.2, locked)"
-          -  "Tests (php7.2, highest)"
-          -  "Tests (php7.3, lowest)"
-          -  "Tests (php7.3, locked)"
-          -  "Tests (php7.3, highest)"
-          -  "Code Coverage"
-          -  "codecov/patch"
-          -  "codecov/project"
+          - "Coding Standards"
+          - "Dependency Analysis"
+          - "Static Code Analysis"
+          - "Tests (php7.2, lowest)"
+          - "Tests (php7.2, locked)"
+          - "Tests (php7.2, highest)"
+          - "Tests (php7.3, lowest)"
+          - "Tests (php7.3, locked)"
+          - "Tests (php7.3, highest)"
+          - "Code Coverage"
+          - "Mutation Tests"
+          - "codecov/patch"
+          - "codecov/project"
         strict: false
       restrictions: null
 
@@ -27,7 +30,7 @@ labels:
   - name: bug
     color: ee0701
 
-  - name: dependencies
+  - name: dependency
     color: 0366d6
 
   - name: enhancement
@@ -49,7 +52,7 @@ repository:
   default_branch: master
   description: ":notebook: Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer."
   has_downloads: true
-  has_issues: false
+  has_issues: true
   has_pages: false
   has_projects: false
   has_wiki: false

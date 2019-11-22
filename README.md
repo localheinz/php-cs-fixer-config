@@ -142,9 +142,9 @@ If you only want to run `php-cs-fixer` on one PHP version, update your build mat
 ```yml
 matrix:
   include:
-    - php: 7.1
+    - php: 7.2
       env: WITH_CS=true
-    - php: 7.1
+    - php: 7.2
       env: WITH_COVERAGE=true
 
 script:
@@ -153,11 +153,10 @@ script:
 
 ### Makefile
 
-Create a `Makefile` with a `cs` target:
+Create a `Makefile` with a `coding-standards` target:
 
 ```Makefile
-.PHONY: cs
-
+.PHONY: coding-standards
 cs: vendor
 	mkdir -p .build/php-cs-fixer
 	vendor/bin/php-cs-fixer fix --config=.php_cs --diff --verbose
@@ -165,14 +164,17 @@ cs: vendor
 vendor: composer.json composer.lock
 	composer validate
 	composer install
-
 ```
 
 Then run
 
 ```
-$ make cs
+$ make coding-standards
 ```
+
+## Changelog
+
+Please have a look at [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Contributing
 
