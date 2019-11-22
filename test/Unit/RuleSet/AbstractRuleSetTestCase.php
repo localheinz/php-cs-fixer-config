@@ -39,23 +39,9 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
      */
     protected $targetPhpVersion;
 
-    final public function testIsFinal(): void
-    {
-        $reflection = new \ReflectionClass($this->className());
-
-        self::assertTrue($reflection->isFinal());
-    }
-
-    final public function testImplementsRuleSetInterface(): void
-    {
-        $reflection = new \ReflectionClass($this->className());
-
-        self::assertTrue($reflection->implementsInterface(Config\RuleSet::class));
-    }
-
     final public function testDefaults(): void
     {
-        $ruleSet = $this->createRuleSet();
+        $ruleSet = self::createRuleSet();
 
         self::assertSame($this->name, $ruleSet->name());
         self::assertEquals($this->rules, $ruleSet->rules());
@@ -92,46 +78,9 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         ));
     }
 
-    /**
-     * @dataProvider providerInvalidHeader
-     *
-     * @param mixed $header
-     */
-    final public function testConstructorRejectsInvalidHeader($header): void
-    {
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage(\sprintf(
-            'Header needs to be specified as null or a string. Got "%s" instead.',
-            \is_object($header) ? \get_class($header) : \gettype($header)
-        ));
-
-        $this->createRuleSet($header);
-    }
-
-    /**
-     * @return \Generator
-     */
-    final public function providerInvalidHeader()
-    {
-        $values = [
-            'array' => [],
-            'boolean-false' => false,
-            'boolean-true' => true,
-            'float' => 3.14,
-            'integer' => 90001,
-            'object' => new \stdClass(),
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
-    }
-
     final public function testHeaderCommentFixerIsDisabledByDefault(): void
     {
-        $rules = $this->createRuleSet()->rules();
+        $rules = self::createRuleSet()->rules();
 
         self::assertArrayHasKey('header_comment', $rules);
         self::assertFalse($rules['header_comment']);
@@ -144,7 +93,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
      */
     final public function testHeaderCommentFixerIsEnabledIfHeaderIsProvided($header): void
     {
-        $rules = $this->createRuleSet($header)->rules();
+        $rules = self::createRuleSet($header)->rules();
 
         self::assertArrayHasKey('header_comment', $rules);
 
@@ -202,7 +151,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     final public function providerRuleNames()
     {
         $values = [
-            'rule set' => $this->createRuleSet()->rules(),
+            'rule set' => self::createRuleSet()->rules(),
             'test' => $this->rules,
         ];
 
@@ -215,11 +164,13 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
     }
 
     /**
+     * @throws \RuntimeException
+     *
      * @return string
      */
-    final protected function className()
+    final protected static function className(): string
     {
-        return \preg_replace(
+        $className = \preg_replace(
             '/Test$/',
             '',
             \str_replace(
@@ -228,26 +179,47 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
                 static::class
             )
         );
+
+        if (!\is_string($className)) {
+            throw new \RuntimeException(\sprintf(
+                'Failed resolving class name from test class name "%s".',
+                static::class
+            ));
+        }
+
+        return $className;
     }
 
     /**
      * @param string $header
      *
-     * @throws \InvalidArgumentException
+     * @throws \RuntimeException
      *
      * @return Config\RuleSet
      */
-    final protected function createRuleSet($header = null)
+    final protected static function createRuleSet($header = null): Config\RuleSet
     {
-        $reflection = new \ReflectionClass($this->className());
+        $className = self::className();
 
-        return $reflection->newInstance($header);
+        $reflection = new \ReflectionClass($className);
+
+        $ruleSet = $reflection->newInstance($header);
+
+        if (!$ruleSet instanceof Config\RuleSet) {
+            throw new \RuntimeException(\sprintf(
+                'Class %s" does not implement interface "%s".',
+                $className,
+                Config\RuleSet::class
+            ));
+        }
+
+        return $ruleSet;
     }
 
     /**
      * @return string[]
      */
-    private function builtInFixers()
+    private function builtInFixers(): array
     {
         static $builtInFixers;
 
@@ -263,10 +235,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
         return $builtInFixers;
     }
 
-    /**
-     * @return string[]
-     */
-    private function configuredFixers()
+    private function configuredFixers(): array
     {
         /**
          * RuleSet::create() removes disabled fixers, to let's just enable them to make sure they are not removed.
@@ -275,7 +244,7 @@ abstract class AbstractRuleSetTestCase extends Framework\TestCase
          */
         $rules = \array_map(static function () {
             return true;
-        }, $this->createRuleSet()->rules());
+        }, self::createRuleSet()->rules());
 
         return \array_keys(RuleSet::create($rules)->getRules());
     }
