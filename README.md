@@ -1,3 +1,7 @@
+# :exclamation: Abandoned!
+
+Use [`ergebnis/php-cs-fixer-config`](http://github.com/ergebnis/php-cs-fixer-config) instead.
+
 # php-cs-fixer-config
 
 [![CI Status](https://github.com/localheinz/php-cs-fixer-config/workflows/Continuous%20Integration/badge.svg)](https://github.com/localheinz/php-cs-fixer-config/actions)

@@ -29,7 +29,6 @@ $config->getFinder()
     ->in(__DIR__)
     ->exclude([
         '.build',
-        '.dependabot',
         '.github',
     ])
     ->name('.php_cs');
